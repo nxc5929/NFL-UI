@@ -1,0 +1,61 @@
+.spread {
+    display: inline-block;
+}
+
+mat-card {
+    display: block;
+}
+
+.game {
+    display: none;
+}
+
+.gameElement {
+    flex: 1;
+    margin-right: 2px;
+}
+
+.favorite {
+    flex: 1;
+    display: inline-block;
+    margin: auto;
+    text-align: center;
+}
+
+mat-radio-group {
+    flex: 2;
+    flex-wrap: wrap;
+    display: flex;
+}
+
+mat-radio-button {
+    flex: 1
+}
+
+mat-radio-button .subtitle {
+    display: block;
+    font-size: 0.8em;
+    margin-top: 2px;
+    max-width: 150px;
+}
+
+
+/* Big Screen */
+
+@media (min-width: 700px) {
+    mat-card {
+        display: flex;
+    }
+    .spread {
+        display: none;
+    }
+    .game {
+        flex: 2;
+        font-size: 25px;
+        display: flex;
+    }
+    .gameElement {
+        margin: auto;
+        text-align: center;
+    }
+}

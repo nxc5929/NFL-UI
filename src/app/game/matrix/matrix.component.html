@@ -1,0 +1,7 @@
+<div class="container">
+    <game-column [games]="games"></game-column>
+    <player-column 
+        *ngFor="let player of players" 
+        [player]="player">
+    </player-column>
+</div>

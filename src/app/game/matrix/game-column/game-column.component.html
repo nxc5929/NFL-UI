@@ -1,0 +1,18 @@
+<div class="list">
+    <div class="headerContainer"><div class="header">Home</div></div>
+    <div class="tile {{getWinner(game, game.homeTeam)}}" *ngFor="let game of games" >
+        <span>{{game.homeTeam.teamAbv}}</span>
+    </div>
+</div>
+<div class="list" cols="1" rowHeight="2:1" gutterSize="1px">
+    <div class="headerContainer"><div class="header">Spread</div></div>
+    <div class="tile" *ngFor="let game of games">
+        {{game.spread.favTeam.teamAbv}}(-{{game.spread.points}})
+    </div>
+</div>
+<div class="list" cols="1" rowHeight="2:1" gutterSize="1px">
+    <div class="headerContainer"><div class="header">Away</div></div>
+    <div class="tile {{getWinner(game, game.awayTeam)}}" *ngFor="let game of games">
+        <span>{{game.awayTeam.teamAbv}}</span>
+    </div>
+</div>

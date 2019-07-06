@@ -1,0 +1,26 @@
+<mat-card>
+    <div class="game">
+        <span class="gameElement">{{awayTeam.teamName}}</span>
+        <span class="gameElement">@</span>
+        <span class="gameElement">{{homeTeam.teamName}}</span>
+    </div>
+    <div class="favorite">
+        <span class="spread">Spread: </span>
+        <span *ngIf="spread; else elseBlock">{{spread.favTeam.teamAbv}} (-{{spread.points}})</span>
+        <ng-template #elseBlock><span>TBD</span></ng-template>
+    </div>
+    <mat-radio-group aria-label="Select an option" [value]="picked" (change)="updatePick($event)">
+        <mat-radio-button [value]="homeTeam.id">
+            <b class="spread">@</b>{{homeTeam.teamName}}
+            <span class="subtitle">
+                {{homeTeam.wins}}-{{homeTeam.losses}}-{{homeTeam.ties}}
+            </span>
+        </mat-radio-button>
+        <mat-radio-button [value]="awayTeam.id">
+            {{awayTeam.teamName}}
+            <span class="subtitle">
+                {{awayTeam.wins}}-{{awayTeam.losses}}-{{awayTeam.ties}}
+            </span>
+        </mat-radio-button>
+    </mat-radio-group>
+</mat-card>

@@ -1,0 +1,17 @@
+.container{
+    display: flex;
+}
+
+player-column{
+    flex: 1;
+    padding: 1px;
+    text-align: center;
+}
+
+game-column{
+    display: inline-flex;
+    flex: 3;
+    padding: 1px;
+    padding-right: 3px;
+    text-align: center;
+}
