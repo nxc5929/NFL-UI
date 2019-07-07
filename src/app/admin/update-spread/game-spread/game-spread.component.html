@@ -1,0 +1,26 @@
+<mat-card>
+    <mat-radio-group aria-label="Select an option" [value]="spreadFavTeamId" (change)="updateFavorite($event.value)">
+        <mat-radio-button [value]="homeTeam.id" style="display: inline-flex">
+            <div class="flexInline gameElement">
+                <img src="assets/logos/{{homeTeam.teamAbv}}.png">
+                <span>{{homeTeam.teamName}}</span>
+            </div>
+        </mat-radio-button>
+
+        <div class="gameElement">
+            <form>
+                <mat-form-field class="example-full-width">
+                    <input matInput placeholder="Spread" (change)="updatePoints($event.target.value)"
+                        [value]="spreadPicked">
+                </mat-form-field>
+            </form>
+        </div>
+
+        <mat-radio-button [value]="awayTeam.id" style="display: inline-flex">
+            <div class="flexInline gameElement">
+                <img src="assets/logos/{{awayTeam.teamAbv}}.png">
+                <span>{{awayTeam.teamName}}</span>
+            </div>
+        </mat-radio-button>
+    </mat-radio-group>
+</mat-card>

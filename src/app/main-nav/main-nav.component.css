@@ -15,3 +15,15 @@
   top: 0;
   z-index: 1;
 }
+
+.username{
+  flex: 1;
+  margin-right: 20px;
+  font-size: 15px;
+  text-align: right;
+}
+
+.mainHeader{
+  width: 100%; 
+  display: flex;
+}

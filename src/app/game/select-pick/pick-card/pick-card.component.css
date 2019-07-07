@@ -1,4 +1,4 @@
-.spread {
+.smallScreen {
     display: inline-block;
 }
 
@@ -6,13 +6,20 @@ mat-card {
     display: block;
 }
 
+img{
+    max-height: 40px;
+}
+
 .game {
     display: none;
 }
 
-.gameElement {
+.gameElement, .teamElement {
     flex: 1;
-    margin-right: 2px;
+}
+
+.flexInline{
+    display: inline-flex;
 }
 
 .favorite {
@@ -29,7 +36,7 @@ mat-radio-group {
 }
 
 mat-radio-button {
-    flex: 1
+    flex: 1;
 }
 
 mat-radio-button .subtitle {
@@ -39,14 +46,13 @@ mat-radio-button .subtitle {
     max-width: 150px;
 }
 
-
 /* Big Screen */
 
 @media (min-width: 700px) {
     mat-card {
         display: flex;
     }
-    .spread {
+    .smallScreen {
         display: none;
     }
     .game {

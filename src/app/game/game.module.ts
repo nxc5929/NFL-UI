@@ -3,29 +3,30 @@ import { BrowserModule } from '@angular/platform-browser';
 import { ServiceModule } from 'src/services/service.module';
 import { SelectPickComponent } from './select-pick/select-pick.component';
 import { GameRoutingModule } from './game-routing.module';
-import { MatCardModule, MatButtonModule, MatRadioButton, MatRadioModule, MatInputModule, MatFormFieldModule, MatGridListModule } from '@angular/material';
+import { MatCardModule, MatButtonModule, MatRadioModule, MatInputModule, MatFormFieldModule, MatGridListModule, MatTableModule, MatSelectModule, MatOptionModule } from '@angular/material';
 import { PickCardComponent } from './select-pick/pick-card/pick-card.component';
 import { MatrixComponent } from './matrix/matrix.component';
-import { PlayerColumnComponent } from './matrix/player-column/player-column.component';
-import { GameColumnComponent } from './matrix/game-column/game-column.component';
+import { WinnerPipe } from 'src/pipes/check-winner.pipe';
 
 @NgModule({
   declarations: [
     SelectPickComponent,
     PickCardComponent,
     MatrixComponent,
-    PlayerColumnComponent,
-    GameColumnComponent
+    WinnerPipe
   ],
   imports: [
     GameRoutingModule,
     BrowserModule,
     MatCardModule,
     MatButtonModule,
+    MatTableModule,
     MatRadioModule,
     MatFormFieldModule,
     MatInputModule,
-    ServiceModule,
+    MatSelectModule,
+    MatOptionModule,
+    ServiceModule
   ],
   providers: []
 })

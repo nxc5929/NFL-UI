@@ -1,17 +1,21 @@
 <mat-card class="main">
-    <pick-card 
-        *ngFor="let pick of picks" 
-        [pick]="pick">
-    </pick-card>
+    <pick-card *ngFor="let pick of picks" [pick]="pick"></pick-card>
     <mat-card>
+        <mat-form-field class="example-full-width">
+            <mat-label>Survivor</mat-label>
+            <mat-select [value]="survivor" (selectionChange)="survivor = $event.value">
+                <mat-option *ngFor="let team of playingTeams" [value]="team">
+                    {{team.teamName}}
+                </mat-option>
+            </mat-select>
+        </mat-form-field>
+
         <mat-form-field class="example-full-width">
             <input matInput placeholder="Tiebreaker" (input)="tiebreaker = $event.target.value" [value]="tiebreaker">
         </mat-form-field>
-    </mat-card>
-    <div class="form-group">
         <button (click)="submit()" [disabled]="loading" class="btn btn-primary">
             <span *ngIf="loading" class="spinner-border spinner-border-sm mr-1"></span>
             Submit
         </button>
-    </div>
+    </mat-card>
 </mat-card>

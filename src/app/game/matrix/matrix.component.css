@@ -1,17 +1,43 @@
 .container{
+    overflow: auto;
+}
+
+.center{
+    flex: 1;
+    text-align: center;
+}
+
+.boarder{
     display: flex;
 }
 
-player-column{
-    flex: 1;
-    padding: 1px;
-    text-align: center;
+mat-cell:first-of-type, 
+mat-header-cell:first-of-type,
+mat-footer-cell:first-of-type, 
+mat-cell:last-of-type, 
+mat-header-cell:last-of-type,
+mat-footer-cell:last-of-type{
+    padding: 0px;
 }
 
-game-column{
-    display: inline-flex;
-    flex: 3;
-    padding: 1px;
-    padding-right: 3px;
-    text-align: center;
+.header{
+    display: flex;
+    flex: 1;
+    justify-content: flex-end;
+    align-self: flex-end;
+    align-items: center;
+    writing-mode: vertical-lr;
+    height: 100px;
+    white-space:nowrap;
+    overflow:hidden;
+    margin-bottom: 5px;
+}
+
+.winner{
+    background-color: lawngreen;
+}
+
+.loser{
+    background-color: red;
+    color: white;
 }

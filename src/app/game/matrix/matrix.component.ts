@@ -12,16 +12,23 @@ export class MatrixComponent implements OnInit {
   constructor(private gameService: GameService) { }
 
   players: Player[]
-  games: Game[];
+
+  playerKeys: string[]
+  matrix: any;
+  displayedColumns: string[] = ['home', 'spread', 'away', 'score'];
 
   ngOnInit() {
     this.gameService.getMatrix().subscribe(res => {
       console.log(res)
+      this.matrix = res.data.matrix;
+      this.matrix.sort((a, b) => a.ref.game.id - b.ref.game.id);
+      this.playerKeys = Object.keys(this.matrix[0]);
+      this.playerKeys = this.playerKeys.filter(word => word != "ref");
+      this.displayedColumns = this.displayedColumns.concat(this.playerKeys);
       this.players = res.data.players;
-      this.games = res.data.games;
+      console.log(this.players);
     });
-    this.gameService.getWeeks().subscribe(res => console.log(res));
-    this.gameService.getTeams().subscribe(res => console.log(res));
+    // this.gameService.getWeeks().subscribe(res => console.log(res));
   }
 
 }

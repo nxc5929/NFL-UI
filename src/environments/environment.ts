@@ -5,7 +5,8 @@
 export const environment = {
   production: false,
   apiURL: 'http://localhost:8080/api/v1',
-  secureApiURL: 'http://localhost:8080/api/v1/secure'
+  secureApiURL: 'http://localhost:8080/api/v1/secure',
+  adminApiURL: 'http://localhost:8080/api/v1/admin',
 };
 
 /*

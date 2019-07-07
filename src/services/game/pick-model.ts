@@ -10,7 +10,8 @@ export class Week{
         public games: Game[],
         public players: Player[],
         public normalWeek: boolean,
-        public weekStarted: boolean
+        public weekStarted: boolean,
+        public matrix: any
     ){}
 }
 

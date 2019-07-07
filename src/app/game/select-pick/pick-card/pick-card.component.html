@@ -1,8 +1,14 @@
 <mat-card>
     <div class="game">
-        <span class="gameElement">{{awayTeam.teamName}}</span>
+        <div class="flexInline gameElement">
+            <img src="assets/logos/{{awayTeam.teamAbv}}.png">
+            <span>{{awayTeam.teamName}}</span>
+        </div>
         <span class="gameElement">@</span>
-        <span class="gameElement">{{homeTeam.teamName}}</span>
+        <div class="flexInline gameElement">
+            <img src="assets/logos/{{homeTeam.teamAbv}}.png">
+            <span>{{homeTeam.teamName}}</span>
+        </div>
     </div>
     <div class="favorite">
         <span class="spread">Spread: </span>
@@ -10,17 +16,28 @@
         <ng-template #elseBlock><span>TBD</span></ng-template>
     </div>
     <mat-radio-group aria-label="Select an option" [value]="picked" (change)="updatePick($event)">
-        <mat-radio-button [value]="homeTeam.id">
-            <b class="spread">@</b>{{homeTeam.teamName}}
-            <span class="subtitle">
-                {{homeTeam.wins}}-{{homeTeam.losses}}-{{homeTeam.ties}}
-            </span>
+        <mat-radio-button [value]="homeTeam.id" style="display: inline-flex">
+            <div class="flexInline">
+                <img class="smallScreen teamElement" src="assets/logos/{{homeTeam.teamAbv}}.png">
+                <div class="teamElement">
+                    <b class="smallScreen">@</b>{{homeTeam.teamName}}
+                    <span class="subtitle">
+                        {{homeTeam.wins}}-{{homeTeam.losses}}-{{homeTeam.ties}}
+                    </span>
+                </div>
+            </div>
         </mat-radio-button>
-        <mat-radio-button [value]="awayTeam.id">
-            {{awayTeam.teamName}}
-            <span class="subtitle">
-                {{awayTeam.wins}}-{{awayTeam.losses}}-{{awayTeam.ties}}
-            </span>
-        </mat-radio-button>
+
+        <mat-radio-button [value]="awayTeam.id" style="display: inline-flex">
+                <div class="flexInline">
+                    <img class="smallScreen teamElement" src="assets/logos/{{awayTeam.teamAbv}}.png">
+                    <div class="teamElement">
+                        <b class="smallScreen">@</b>{{awayTeam.teamName}}
+                        <span class="subtitle">
+                            {{awayTeam.wins}}-{{awayTeam.losses}}-{{awayTeam.ties}}
+                        </span>
+                    </div>
+                </div>
+            </mat-radio-button>
     </mat-radio-group>
 </mat-card>

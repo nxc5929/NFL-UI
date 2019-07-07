@@ -1,0 +1,9 @@
+<mat-card class="main">
+        <game-spread *ngFor="let game of games" [game]="game"></game-spread>
+        <mat-card>
+            <button (click)="submit()" [disabled]="loading" class="btn btn-primary">
+                <span *ngIf="loading" class="spinner-border spinner-border-sm mr-1"></span>
+                Submit
+            </button>
+        </mat-card>
+    </mat-card>

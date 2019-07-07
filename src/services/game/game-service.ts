@@ -35,8 +35,8 @@ export class GameService {
   getWeeks(): Observable<string>{
     return this.http.get<string>(`${environment.secureApiURL}/picks/weeks`, this.getHttpOptions());
   }
-  getTeams(): Observable<Team[]>{
-    return this.http.get<Team[]>(`${environment.secureApiURL}/picks/teams`, this.getHttpOptions());
+  getTeams(): Observable<GenericResponse<Team[]>>{
+    return this.http.get<GenericResponse<Team[]>>(`${environment.secureApiURL}/picks/teams`, this.getHttpOptions());
   }
 
 }

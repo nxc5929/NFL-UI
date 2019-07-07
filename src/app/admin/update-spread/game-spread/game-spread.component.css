@@ -1,0 +1,25 @@
+mat-card{
+    display: flex;
+}
+
+span{
+    margin: auto;
+}
+
+img{
+    max-height: 50px;
+}
+
+.gameElement {
+    flex: 1;
+}
+
+mat-radio-group {
+    flex: 3;
+    flex-wrap: wrap;
+    display: flex;
+}
+
+mat-radio-button {
+    flex: 1;
+}

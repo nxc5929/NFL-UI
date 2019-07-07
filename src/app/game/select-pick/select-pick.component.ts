@@ -17,6 +17,7 @@ export class SelectPickComponent implements OnInit {
   tiebreaker: number
   player: Player
   playerId: number
+  playingTeams: Team[];
 
   loading: boolean = false;
 
@@ -24,9 +25,13 @@ export class SelectPickComponent implements OnInit {
   ngOnInit() {
     this.gameService.getPicks().subscribe(res => {
       this.playerId = res.data.id;
-      this.picks = res.data.picks;
+      this.picks = res.data.picks.sort((a,b) => a.game.id - b.game.id);
       this.survivor = res.data.survivor;
       this.tiebreaker = res.data.tiebreaker;
+    });
+    this.gameService.getTeams().subscribe(res => {
+      this.playingTeams = res.data;
+      console.log(this.playingTeams);
     });
   }
 

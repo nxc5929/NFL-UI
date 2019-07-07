@@ -19,8 +19,24 @@ export class AccountService{
         return this.http.post(`${environment.apiURL}/accounts/login`, userInfo);
     }
 
+    logout(){
+        console.log("TODO: LOG USER OUT");
+        localStorage.removeItem("token");
+        localStorage.removeItem("adminToken");
+        window.location.reload();
+    }
+
+    get currentAdminValue(): SecureUser{
+        var token = localStorage.getItem("adminToken");
+        return this.userValue(token);
+    }
+
     get currentUserValue(): SecureUser{
         var token = localStorage.getItem("token");
+        return this.userValue(token);
+    }
+
+    userValue(token): SecureUser{
         if(token == null){
             return null;
         }
@@ -30,10 +46,15 @@ export class AccountService{
 
     setUserToken(token: string){
         localStorage.setItem("token", token);
+        localStorage.setItem("adminToken", token);
     }
 
     get userToken(): string{
         return localStorage.getItem("token");
+    }
+
+    get adminToken(): string{
+        return localStorage.getItem("adminToken");
     }
 
 }
