@@ -9,6 +9,13 @@ export const environment = {
   adminApiURL: 'http://localhost:8080/api/v1/admin',
 };
 
+// export const environment = {
+//   production: true,
+//   apiURL: 'https://nfl-picks-connor-api.herokuapp.com/api/v1',
+//   secureApiURL: 'https://nfl-picks-connor-api.herokuapp.com/api/v1/secure',
+//   adminApiURL: 'https://nfl-picks-connor-api.herokuapp.com/api/v1/admin',
+// };
+
 /*
  * For easier debugging in development mode, you can import the following file
  * to ignore zone related error stack frames such as `zone.run`, `zoneDelegate.invokeTask`.

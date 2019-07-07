@@ -25,7 +25,7 @@ export class SelectPickComponent implements OnInit {
   ngOnInit() {
     this.gameService.getPicks().subscribe(res => {
       this.playerId = res.data.id;
-      this.picks = res.data.picks.sort((a,b) => a.game.id - b.game.id);
+      this.picks = res.data.picks.sort((a, b) => a.game.id - b.game.id);
       this.survivor = res.data.survivor;
       this.tiebreaker = res.data.tiebreaker;
     });
@@ -35,15 +35,31 @@ export class SelectPickComponent implements OnInit {
     });
   }
 
-  submit(){
+  submit() {
     this.loading = true;
-    console.log(this.picks);
-    this.gameService.setPicks(new Player(this.playerId, this.picks, this.survivor, this.tiebreaker, null))
-    .subscribe(
-      success => this.alertService.success("Successfully Submitted Picks"),
-      error => this.alertService.error("Something went wrong"),
-      () => this.loading = false
-    );
+    var valid = this.validateForm();
+    if (!valid) {
+      this.alertService.error("Please fill in all picks!");
+      this.loading = false;
+    } else {
+
+      this.gameService.setPicks(new Player(this.playerId, this.picks, this.survivor, this.tiebreaker, null))
+        .subscribe(
+          success => this.alertService.success("Successfully Submitted Picks"),
+          error => this.alertService.error("Something went wrong"),
+          () => this.loading = false
+        );
+    }
+  }
+
+  validateForm(): boolean {
+    var valid = true;
+    this.picks.forEach(pick => {
+      if (pick.pick == null) {
+        valid = false;
+      }
+    });
+    return valid;
   }
 
 }
