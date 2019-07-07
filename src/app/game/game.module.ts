@@ -7,17 +7,18 @@ import { MatCardModule, MatButtonModule, MatRadioModule, MatInputModule, MatForm
 import { PickCardComponent } from './select-pick/pick-card/pick-card.component';
 import { MatrixComponent } from './matrix/matrix.component';
 import { WinnerPipe } from 'src/pipes/check-winner.pipe';
+import { PipeModule } from 'src/pipes/pipe.module';
 
 @NgModule({
   declarations: [
     SelectPickComponent,
     PickCardComponent,
-    MatrixComponent,
-    WinnerPipe
+    MatrixComponent
   ],
   imports: [
     GameRoutingModule,
     BrowserModule,
+    PipeModule,
     MatCardModule,
     MatButtonModule,
     MatTableModule,
