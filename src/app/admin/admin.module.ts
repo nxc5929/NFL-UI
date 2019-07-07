@@ -4,14 +4,13 @@ import { SwitchAccountComponent } from './switch-account/switch-account.componen
 import { AdminRoutingModule } from './admin-routing.module';
 import { MatGridListModule, MatCardModule, MatRadioModule, MatFormFieldModule, MatInputModule } from '@angular/material';
 import { BrowserModule } from '@angular/platform-browser';
-import { SubmittedPicksPipe } from 'src/pipes/submitted-picks.pipe.';
 import { UpdateSpreadComponent } from './update-spread/update-spread.component';
 import { GameSpreadComponent } from './update-spread/game-spread/game-spread.component';
+import { PipeModule } from 'src/pipes/pipe.module';
 
 @NgModule({
   declarations: [
     SwitchAccountComponent,
-    SubmittedPicksPipe,
     UpdateSpreadComponent,
     GameSpreadComponent
   ],
@@ -19,6 +18,7 @@ import { GameSpreadComponent } from './update-spread/game-spread/game-spread.com
     AdminRoutingModule,
     BrowserModule,
     ServiceModule,
+    PipeModule,
     MatGridListModule,
     MatCardModule,
     MatRadioModule,
