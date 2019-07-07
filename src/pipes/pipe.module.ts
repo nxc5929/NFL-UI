@@ -7,6 +7,7 @@ import { SubmittedPicksPipe } from './submitted-picks.pipe';
 @NgModule({
   declarations: [HelperPipe, WinnerPipe, SubmittedPicksPipe],
   imports: [HttpClientModule],
+  exports: [HelperPipe, WinnerPipe, SubmittedPicksPipe],
   providers: []
 })
 export class PipeModule { }
