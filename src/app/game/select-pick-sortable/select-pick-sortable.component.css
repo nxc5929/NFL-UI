@@ -8,7 +8,7 @@
 
 .draggable{
   display: inline-flex;
-  margin: 10px;
+  margin-bottom: 10px;
 }
 
 .draggableItem{
@@ -19,6 +19,7 @@
 .listGroup{
   width: 100%;
   display: inline-flex;
+  overflow: auto;
 }
 
 .list{
