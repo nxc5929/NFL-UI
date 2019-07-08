@@ -19,7 +19,7 @@
 .listGroup{
   width: 100%;
   display: inline-flex;
-  overflow: auto;
+  overflow: visible;
 }
 
 .list{
