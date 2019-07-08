@@ -10,11 +10,13 @@
             <span>{{homeTeam.teamName}}</span>
         </div>
     </div>
+    <ng-template [ngIf]="!sortable">
     <div class="favorite">
         <span class="spread">Spread: </span>
         <span *ngIf="spread; else elseBlock">{{spread.favTeam.teamAbv}} (-{{spread.points}})</span>
         <ng-template #elseBlock><span>TBD</span></ng-template>
     </div>
+    </ng-template>
     <mat-radio-group aria-label="Select an option" [value]="picked" (change)="updatePick($event)">
         <mat-radio-button [value]="homeTeam.id" style="display: inline-flex">
             <div class="flexInline">
@@ -32,7 +34,7 @@
                 <div class="flexInline">
                     <img class="smallScreen teamElement" src="assets/logos/{{awayTeam.teamAbv}}.png">
                     <div class="teamElement">
-                        <b class="smallScreen">@</b>{{awayTeam.teamName}}
+                        {{awayTeam.teamName}}
                         <span class="subtitle">
                             {{awayTeam.wins}}-{{awayTeam.losses}}-{{awayTeam.ties}}
                         </span>

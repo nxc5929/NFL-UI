@@ -12,6 +12,7 @@ export class PickCardComponent implements OnInit {
   constructor() { }
 
   @Input() pick: Pick;
+  @Input() sortable: boolean = false;
 
   homeTeam: Team;
   awayTeam: Team;

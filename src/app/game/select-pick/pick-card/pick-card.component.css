@@ -56,7 +56,7 @@ mat-radio-button .subtitle {
         display: none;
     }
     .game {
-        flex: 2;
+        flex: 3;
         font-size: 25px;
         display: flex;
     }

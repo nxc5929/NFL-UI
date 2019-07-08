@@ -1,0 +1,38 @@
+<mat-card>
+    <mat-horizontal-stepper #stepper>
+        <mat-step>
+            <ng-template matStepLabel>Select Winning Teams</ng-template>
+            <pick-card *ngFor="let pick of picks" sortable="true" [pick]="pick"></pick-card>
+        </mat-step>
+        <mat-step>
+            <ng-template matStepLabel>Order Games</ng-template>
+            <h3>Rank Games (1 = Most Confident)</h3>
+            <div class="listGroup" cdkDropListGroup>
+                <div class="list" cdkDropList [cdkDropListData]="picksTop" (cdkDropListDropped)="drop($event)">
+                    <div *ngFor="let pick of picksTop; index as index" cdkDrag>
+                        <div class="placeholder" *cdkDragPlaceholder></div>
+                        <div class="draggable">
+                            <div cdkDragHandle class="draggableItem">
+                                <mat-icon aria-hidden="false" aria-label="move">drag_indicator</mat-icon>
+                            </div>
+                            <span class="draggableItem">{{index+1}}</span>
+                            <sortable-game sortable="true" [pick]="pick" class="draggableItem"></sortable-game>
+                        </div>
+                    </div>
+                </div>
+                <div class="list" cdkDropList [cdkDropListData]="picksBottom" (cdkDropListDropped)="drop($event)">
+                    <div *ngFor="let pick of picksBottom; index as index" cdkDrag>
+                        <div class="placeholder" *cdkDragPlaceholder></div>
+                        <div class="draggable">
+                            <div cdkDragHandle class="draggableItem">
+                                <mat-icon aria-hidden="false" aria-label="move">drag_indicator</mat-icon>
+                            </div>
+                            <span class="draggableItem">{{index+middle+1}}</span>
+                            <sortable-game sortable="true" [pick]="pick" class="draggableItem"></sortable-game>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </mat-step>
+    </mat-horizontal-stepper>
+</mat-card>
