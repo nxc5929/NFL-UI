@@ -1,41 +1,45 @@
 <div class="container">
     <mat-table [dataSource]="matrix">
         <ng-container matColumnDef="home">
-            <mat-header-cell *matHeaderCellDef><span class="header">Home</span></mat-header-cell>
-            <mat-cell *matCellDef="let element" class="{{element.ref.game | styleGame:element.ref.game.homeTeam}}">
+            <mat-header-cell *matHeaderCellDef class="team"><span class="header">Home</span></mat-header-cell>
+            <mat-cell *matCellDef="let element" class="team {{element.ref.game | styleGame:element.ref.game.homeTeam}}">
                 <span class="center">{{element.ref.game.homeTeam.teamAbv}}</span> 
             </mat-cell>
-            <mat-footer-cell *matFooterCellDef></mat-footer-cell>
+            <mat-footer-cell *matFooterCellDef class="team"></mat-footer-cell>
         </ng-container>
 
         <ng-container matColumnDef="spread">
-            <mat-header-cell *matHeaderCellDef><span class="header">Spread</span></mat-header-cell>
-            <mat-cell *matCellDef="let element">
+            <mat-header-cell *matHeaderCellDef class="spread"><span class="header">Spread</span></mat-header-cell>
+            <mat-cell *matCellDef="let element" class="spread">
                 <span class="center">{{element.ref.game.spread.favTeam.teamAbv}} (-{{element.ref.game.spread.points}})</span>
             </mat-cell>
-            <mat-footer-cell *matFooterCellDef></mat-footer-cell>
+            <mat-footer-cell *matFooterCellDef class="spread"></mat-footer-cell>
         </ng-container>
 
         <ng-container matColumnDef="away">
-            <mat-header-cell *matHeaderCellDef><span class="header">Away</span></mat-header-cell>
-            <mat-cell *matCellDef="let element" class="{{element.ref.game | styleGame:element.ref.game.awayTeam}}">
+            <mat-header-cell *matHeaderCellDef class="team"><span class="header">Away</span></mat-header-cell>
+            <mat-cell *matCellDef="let element" class="team {{element.ref.game | styleGame:element.ref.game.awayTeam}}">
                 <span class="center">{{element.ref.game.awayTeam.teamAbv}}</span>
             </mat-cell>
-            <mat-footer-cell *matFooterCellDef></mat-footer-cell>
+            <mat-footer-cell *matFooterCellDef class="team"></mat-footer-cell>
         </ng-container>
 
         <ng-container matColumnDef="score">
-            <mat-header-cell *matHeaderCellDef><span class="header">Score</span></mat-header-cell>
-            <mat-cell *matCellDef="let element"><span class="center">{{element.ref.game.homeScore}} - {{element.ref.game.awayScore}}</span></mat-cell>
-            <mat-footer-cell *matFooterCellDef><span class="center">Tiebreaker</span></mat-footer-cell>
+            <mat-header-cell *matHeaderCellDef class="score"><span class="header">Score</span></mat-header-cell>
+            <mat-cell *matCellDef="let element" class="score">
+                <span class="center">{{element.ref.game.homeScore}} - {{element.ref.game.awayScore}}</span>
+            </mat-cell>
+            <mat-footer-cell *matFooterCellDef class="score">
+                <span class="center">Tie</span>
+            </mat-footer-cell>
         </ng-container>
 
         <ng-container *ngFor="let playerKey of playerKeys" matColumnDef="{{playerKey}}">
-            <mat-header-cell *matHeaderCellDef><span class="header">{{playerKey}}</span></mat-header-cell>
-            <mat-cell *matCellDef="let element" class="{{element.ref.game | styleGame:element[playerKey].pick}}">
+            <mat-header-cell *matHeaderCellDef class="team"><span class="header">{{playerKey}}</span></mat-header-cell>
+            <mat-cell *matCellDef="let element" class="team {{element.ref.game | styleGame:element[playerKey].pick}}">
                 <span class="center">{{element[playerKey].pick.teamAbv}}</span>
             </mat-cell>
-            <mat-footer-cell *matFooterCellDef><span class="center">{{players[playerKey].tiebreaker}}</span></mat-footer-cell>
+            <mat-footer-cell *matFooterCellDef class="center"><span class="center">{{players[playerKey].tiebreaker}}</span></mat-footer-cell>
         </ng-container>
 
         <mat-header-row *matHeaderRowDef="displayedColumns"></mat-header-row>
