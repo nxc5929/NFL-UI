@@ -9,6 +9,7 @@
 .draggable{
   display: inline-flex;
   margin-bottom: 10px;
+  cursor: all-scroll;
 }
 
 .draggableItem{

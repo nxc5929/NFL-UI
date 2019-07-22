@@ -8,14 +8,10 @@ import { Pick, Team } from 'src/services/game/pick-model';
 })
 export class SortableGameComponent implements OnInit {
 
-  @Input() pick: Pick
-
-  team: Team;
+  @Input() team: Team;
 
   constructor() { }
 
-  ngOnInit() {
-    this.team = this.pick.pick;
-  }
+  ngOnInit() {}
 
 }

@@ -10,8 +10,15 @@ export class WinnerPipe implements PipeTransform {
             var awayTeam: number = game.awayTeam.id;
             var awayScore: number = game.awayScore;
 
-            var spread: number = game.spread.points;
-            var favoriteTeam: number = game.spread.favTeam.id;
+            var spread: number;
+            var favoriteTeam: number;
+            if(game.spread){
+                spread = game.spread.points;
+                favoriteTeam = game.spread.favTeam.id;
+            }else{
+                spread = 0;
+                favoriteTeam = homeTeam;
+            }
 
             homeScore += (homeTeam == favoriteTeam) ? -spread : spread;
 

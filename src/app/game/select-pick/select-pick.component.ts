@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { GameService } from 'src/services/game/game-service';
-import { PickModel, Player, Pick, Team, Spread } from 'src/services/game/pick-model';
+import { Player, Pick, Team, Spread } from 'src/services/game/pick-model';
 import { AlertService } from 'src/services/alert-service';
 
 @Component({
@@ -29,10 +29,6 @@ export class SelectPickComponent implements OnInit {
       this.survivor = res.data.survivor;
       this.tiebreaker = res.data.tiebreaker;
     });
-    this.gameService.getTeams().subscribe(res => {
-      this.playingTeams = res.data;
-      console.log(this.playingTeams);
-    });
   }
 
   submit() {
@@ -50,6 +46,10 @@ export class SelectPickComponent implements OnInit {
           () => this.loading = false
         );
     }
+  }
+
+  updateSurvivor(survivor: Team){
+    this.survivor = survivor;
   }
 
   validateForm(): boolean {

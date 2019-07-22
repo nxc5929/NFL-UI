@@ -15,12 +15,19 @@ export class MatrixComponent implements OnInit {
 
   playerKeys: string[]
   matrix: any;
-  displayedColumns: string[] = ['home', 'spread', 'away', 'score'];
+  normalWeekColumns: string[] = ['home', 'spread', 'away', 'score'];
+  confidenceWeekColumns: string[] = ['home', 'away', 'score'];;
+  displayedColumns: string[];
 
   ngOnInit() {
     this.gameService.getMatrix().subscribe(res => {
       console.log(res)
       this.matrix = res.data.matrix;
+      if(res.data.normalWeek){
+        this.displayedColumns = this.normalWeekColumns;
+      }else{
+        this.displayedColumns = this.confidenceWeekColumns;
+      }
       this.matrix.sort((a, b) => a.ref.game.id - b.ref.game.id);
       this.playerKeys = Object.keys(this.matrix[0]);
       this.playerKeys = this.playerKeys.filter(word => word != "ref");

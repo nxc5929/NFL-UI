@@ -1,7 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
-import { first } from 'rxjs/operators';
 import { AccountService } from 'src/services/accounts/account-service';
 import { AlertService } from 'src/services/alert-service';
 import { UserInfo } from 'src/services/accounts/user-info';
@@ -52,7 +51,7 @@ export class RegisterComponent implements OnInit {
                     this.router.navigate(['/accounts/login']);
                 },
                 error => {
-                    this.alertService.error(error.message);
+                    this.alertService.error(error.error.message);
                     this.loading = false;
                 });
     }

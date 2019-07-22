@@ -1,5 +1,5 @@
 <div id="container">
-    <div class="flexInline">
+    <div class="flexInline" *ngIf="team">
         <img src="assets/logos/{{team.teamAbv}}.png">
         <div class="element">
             <b>@</b>{{team.teamName}}

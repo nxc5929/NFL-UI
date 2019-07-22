@@ -1,11 +1,10 @@
 <mat-card>
-    <mat-horizontal-stepper #stepper>
-        <mat-step>
-            <ng-template matStepLabel>Select Winning Teams</ng-template>
+    <mat-horizontal-stepper (selectionChange)="createTwoLists()" #stepper>
+        <mat-step label="Select Winning Teams">
             <pick-card *ngFor="let pick of picks" sortable="true" [pick]="pick"></pick-card>
+            <pick-survivor [games]="picks" [survivor]="survivor" (onChange)="updateSurvivor($event)"></pick-survivor>
         </mat-step>
-        <mat-step>
-            <ng-template matStepLabel>Order Games</ng-template>
+        <mat-step label="Order Games">
             <h3>Rank Games (1 = Most Confident)</h3>
             <div class="listGroup" cdkDropListGroup>
                 <div class="list" cdkDropList [cdkDropListData]="picksTop" (cdkDropListDropped)="drop($event)">
@@ -16,7 +15,7 @@
                                 <mat-icon aria-hidden="false" aria-label="move">drag_indicator</mat-icon>
                             </div>
                             <span class="draggableItem">{{index+1}}</span>
-                            <sortable-game sortable="true" [pick]="pick" class="draggableItem"></sortable-game>
+                            <sortable-game sortable="true" [team]="pick?.pick" class="draggableItem"></sortable-game>
                         </div>
                     </div>
                 </div>
@@ -28,11 +27,15 @@
                                 <mat-icon aria-hidden="false" aria-label="move">drag_indicator</mat-icon>
                             </div>
                             <span class="draggableItem">{{index+middle+1}}</span>
-                            <sortable-game sortable="true" [pick]="pick" class="draggableItem"></sortable-game>
+                            <sortable-game sortable="true" [team]="pick?.pick" class="draggableItem"></sortable-game>
                         </div>
                     </div>
                 </div>
             </div>
+            <button (click)="submit()" [disabled]="loading" class="btn btn-primary">
+                    <span *ngIf="loading" class="spinner-border spinner-border-sm mr-1"></span>
+                    Submit
+            </button>
         </mat-step>
     </mat-horizontal-stepper>
 </mat-card>

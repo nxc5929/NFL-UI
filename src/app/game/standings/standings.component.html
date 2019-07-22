@@ -1,0 +1,27 @@
+<mat-card>
+    <mat-table [dataSource]="standings">
+        <ng-container matColumnDef="user">
+            <mat-header-cell *matHeaderCellDef>Name</mat-header-cell>
+            <mat-cell *matCellDef="let element">
+                {{element.user.fullName}}
+            </mat-cell>
+        </ng-container>
+
+        <ng-container matColumnDef="correct">
+            <mat-header-cell *matHeaderCellDef># Correct</mat-header-cell>
+            <mat-cell *matCellDef="let element">
+                {{element.correct}}
+            </mat-cell>
+        </ng-container>
+
+        <ng-container matColumnDef="total">
+            <mat-header-cell *matHeaderCellDef>% Correct</mat-header-cell>
+            <mat-cell *matCellDef="let element">
+                {{getPercentage(element.correct / element.total)}}
+            </mat-cell>
+        </ng-container>
+
+        <mat-header-row *matHeaderRowDef="displayedColumns"></mat-header-row>
+        <mat-row class="{{isMe(row)}}" *matRowDef="let row; columns: displayedColumns;"></mat-row>
+    </mat-table>
+</mat-card>

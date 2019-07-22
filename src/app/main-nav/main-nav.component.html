@@ -6,6 +6,7 @@
       <a mat-list-item href="/game/select-picks">Select Picks</a>
       <a mat-list-item href="/game/select-picks-sortable">Select Picks (sort)</a>
       <a mat-list-item href="/game/matrix">Matrix</a>
+      <a mat-list-item href="/game/standings">Standings</a>
       <ng-template [ngIf]="admin">
           <a mat-list-item href="/admin/switch-account">Player Status</a>
           <a mat-list-item href="/admin/update-spread">Update Spread</a>
@@ -31,5 +32,6 @@
     </mat-toolbar>
     <alert></alert>
     <router-outlet></router-outlet>
+    <alert></alert>
   </mat-sidenav-content>
 </mat-sidenav-container>

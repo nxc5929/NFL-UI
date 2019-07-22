@@ -4,6 +4,8 @@ export class PickModel extends GenericResponse<Player>{}
 
 export class WeekModel extends GenericResponse<Week>{}
 
+export class StandingsModel extends GenericResponse<Standings[]>{}
+
 export class Week{
     constructor(
         public id: number,
@@ -33,8 +35,6 @@ export class Account{
     ){}
 }
 
-
-
 export class Pick{
     constructor(
         public id: number,
@@ -60,8 +60,8 @@ export class Game{
 export class Team{
     constructor(
         public id: number,
-        public teamName: String,
-        public teamAbv: String,
+        public teamName: string,
+        public teamAbv: string,
         public wins: number,
         public losses: number,
         public ties: number
@@ -73,5 +73,13 @@ export class Spread{
         public id: number,
         public favTeam: Team,
         public points: number,
+    ){}
+}
+
+export class Standings{
+    constructor(
+        public user: Account,
+        public correct: number,
+        public total: number
     ){}
 }
