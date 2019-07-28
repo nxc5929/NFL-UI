@@ -11,6 +11,15 @@ import { SecureUser } from './secure-user';
 export class AccountService{
     constructor(private http: HttpClient) { }
 
+    getHttpOptions() {
+        return {
+          headers: {
+            'Content-Type': 'application/json',
+            'Authorization': `${this.userToken}`
+          }
+        };
+      }
+
     createAccount(userInfo: UserInfo): Observable<any>{
         return this.http.post(`${environment.apiURL}/accounts/create`, userInfo);
     }
@@ -20,10 +29,18 @@ export class AccountService{
     }
 
     logout(){
-        console.log("TODO: LOG USER OUT");
-        localStorage.removeItem("token");
-        localStorage.removeItem("adminToken");
-        window.location.reload();
+        this.http.post(`${environment.apiURL}/accounts/secure/logout`, this.getHttpOptions())
+        .subscribe(res => {
+            localStorage.removeItem("token");
+            localStorage.removeItem("adminToken");
+            window.location.reload();
+        },
+        err => {
+            console.error("Problem occured while logging out");
+            localStorage.removeItem("token");
+            localStorage.removeItem("adminToken");
+            window.location.reload();
+        });
     }
 
     get currentAdminValue(): SecureUser{
