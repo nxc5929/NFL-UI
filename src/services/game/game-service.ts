@@ -6,6 +6,7 @@ import { Observable } from 'rxjs';
 import { AccountService } from '../accounts/account-service';
 import { PickModel, Player, Team, WeekModel, Game, StandingsModel } from './pick-model';
 import { GenericResponse } from '../generic-response';
+import { GameInfoModel } from './game-info-model';
 
 @Injectable({ providedIn: 'root' })
 export class GameService {
@@ -42,6 +43,10 @@ export class GameService {
 
   getStandings(): Observable<StandingsModel>{
     return this.http.get<StandingsModel>(`${environment.secureApiURL}/picks/standings`, this.getHttpOptions());
+  }
+
+  getWeekInfo(): Observable<GameInfoModel>{
+    return this.http.get<GameInfoModel>(`${environment.apiURL}/general/info`, this.getHttpOptions());
   }
 
 }

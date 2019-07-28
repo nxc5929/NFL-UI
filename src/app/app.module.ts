@@ -14,6 +14,8 @@ import { AlertComponent } from './alert/alert.component';
 import { GameModule } from './game/game.module';
 import { AccountService } from 'src/services/accounts/account-service';
 import { AdminModule } from './admin/admin.module';
+import { GameService } from 'src/services/game/game-service';
+import { InfoModule } from './info/info.module';
 
 
 @NgModule({
@@ -35,10 +37,12 @@ import { AdminModule } from './admin/admin.module';
     LayoutModule,
     MatButtonModule,
     MatMenuModule,
-    MatIconModule
+    MatIconModule,
+    InfoModule
   ],
   providers: [
-    AccountService
+    AccountService,
+    GameService
   ],
   bootstrap: [AppComponent]
 })
