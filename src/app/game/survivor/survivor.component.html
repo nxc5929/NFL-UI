@@ -1,22 +1,14 @@
 <mat-card>
     <mat-table [dataSource]="survivors">
-        <ng-container matColumnDef="user">
-            <mat-header-cell *matHeaderCellDef>Name</mat-header-cell>
-            <mat-cell *matCellDef="let element">
-                {{element.user.fullName}}
-            </mat-cell>
-        </ng-container>
 
         <ng-container *ngFor="let playerKey of playerKeys" matColumnDef="{{playerKey}}">
             <mat-header-cell *matHeaderCellDef><span class="header">{{playerKey}}</span></mat-header-cell>
-            <mat-cell *matCellDef="let element">
-                <span class="center">{{element[playerKey].pick.teamAbv}}</span>
+            <mat-cell class="{{winner(element[playerKey].wonGame)}}" *matCellDef="let element">
+                <span class="center">{{element[playerKey].teamAbv}}</span>
             </mat-cell>
-            <mat-footer-cell *matFooterCellDef class="center"><span
-                    class="center">{{players[playerKey].tiebreaker}}</span></mat-footer-cell>
         </ng-container>
 
-        <mat-header-row *matHeaderRowDef="displayedColumns"></mat-header-row>
-        <mat-row *matRowDef="let row; columns: displayedColumns;"></mat-row>
+        <mat-header-row *matHeaderRowDef="playerKeys"></mat-header-row>
+        <mat-row *matRowDef="let row; columns: playerKeys;"></mat-row>
     </mat-table>
 </mat-card>

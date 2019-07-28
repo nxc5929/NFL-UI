@@ -1,7 +1,6 @@
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 import { ServiceModule } from 'src/services/service.module';
-import { SelectPickComponent } from './select-pick/select-pick.component';
 import { GameRoutingModule } from './game-routing.module';
 import { MatCardModule, MatButtonModule, MatRadioModule, MatInputModule, MatFormFieldModule, MatGridListModule, MatTableModule, MatSelectModule, MatOptionModule, MatStepperModule, MatIconModule } from '@angular/material';
 import { PickCardComponent } from './pick-common/pick-card/pick-card.component';
@@ -13,17 +12,21 @@ import { SortableGameComponent } from './select-pick-sortable/sortable-game/sort
 import { PickSurvivorComponent } from './pick-common/pick-survivor/pick-survivor.component';
 import { StandingsComponent } from './standings/standings.component';
 import { SurvivorComponent } from './survivor/survivor.component';
+import { SelectPicksComponent } from './select-picks/select-picks.component';
+import { SelectPickStandardComponent } from './select-pick-standard/select-pick-standard.component';
 
 @NgModule({
   declarations: [
-    SelectPickComponent,
+    SelectPicksComponent,
+    SelectPickSortableComponent,
+    SelectPickStandardComponent,
     PickCardComponent,
     MatrixComponent,
-    SelectPickSortableComponent,
     SortableGameComponent,
     PickSurvivorComponent,
     StandingsComponent,
-    SurvivorComponent
+    SurvivorComponent,
+    SelectPicksComponent
   ],
   imports: [
     GameRoutingModule,

@@ -1,14 +1,14 @@
 import { Component, OnInit } from '@angular/core';
 import { GameService } from 'src/services/game/game-service';
-import { Player, Pick, Team, Spread } from 'src/services/game/pick-model';
 import { AlertService } from 'src/services/alert-service';
+import { Team, Player, Pick } from 'src/services/game/pick-model';
 
 @Component({
-  selector: 'select-pick',
-  templateUrl: './select-pick.component.html',
-  styleUrls: ['./select-pick.component.css']
+  selector: 'select-pick-standard',
+  templateUrl: './select-pick-standard.component.html',
+  styleUrls: ['./select-pick-standard.component.css']
 })
-export class SelectPickComponent implements OnInit {
+export class SelectPickStandardComponent implements OnInit {
 
   constructor(private gameService: GameService, private alertService: AlertService) { }
 

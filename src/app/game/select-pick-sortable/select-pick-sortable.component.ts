@@ -5,7 +5,7 @@ import { CdkDragDrop, moveItemInArray, transferArrayItem } from '@angular/cdk/dr
 import { AlertService } from 'src/services/alert-service';
 
 @Component({
-  selector: 'app-select-pick-sortable',
+  selector: 'select-pick-sortable',
   templateUrl: './select-pick-sortable.component.html',
   styleUrls: ['./select-pick-sortable.component.css']
 })

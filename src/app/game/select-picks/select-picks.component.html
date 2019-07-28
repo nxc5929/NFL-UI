@@ -1,0 +1,7 @@
+<ng-template [ngIf]="standardPick" [ngIfElse]="sortable">
+    <select-pick-standard></select-pick-standard>
+</ng-template>
+ 
+ <ng-template #sortable>
+     <select-pick-sortable></select-pick-sortable>
+ </ng-template>

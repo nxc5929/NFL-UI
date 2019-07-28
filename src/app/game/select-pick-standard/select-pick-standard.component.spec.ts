@@ -1,20 +1,20 @@
 import { async, ComponentFixture, TestBed } from '@angular/core/testing';
 
-import { SelectPickComponent } from './select-pick.component';
+import { SelectPickStandardComponent } from './select-pick-standard.component';
 
 describe('SelectPickComponent', () => {
-  let component: SelectPickComponent;
-  let fixture: ComponentFixture<SelectPickComponent>;
+  let component: SelectPickStandardComponent;
+  let fixture: ComponentFixture<SelectPickStandardComponent>;
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
-      declarations: [ SelectPickComponent ]
+      declarations: [ SelectPickStandardComponent ]
     })
     .compileComponents();
   }));
 
   beforeEach(() => {
-    fixture = TestBed.createComponent(SelectPickComponent);
+    fixture = TestBed.createComponent(SelectPickStandardComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();
   });
