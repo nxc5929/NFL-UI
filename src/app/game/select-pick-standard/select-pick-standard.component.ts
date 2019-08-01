@@ -52,13 +52,16 @@ export class SelectPickStandardComponent implements OnInit {
     this.survivor = survivor;
   }
 
-  validateForm(): boolean {
-    var valid = true;
+  validateForm(): string {
+    var valid = "ok";
     this.picks.forEach(pick => {
       if (pick.pick == null) {
-        valid = false;
+        valid = "Please Select ";
       }
     });
+    if(isNaN(this.tiebreaker)){
+      valid = false;
+    }
     return valid;
   }
 
