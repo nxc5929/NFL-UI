@@ -15,7 +15,7 @@ app.listen(process.env.PORT || 4200);
 
 var http = require("http");
 setInterval(function() {
-    http.get("https://nfl-picks-connor-stage.herokuapp.com");
-    http.get("https://nfl-picks-connor-api.herokuapp.com");
+    http.get("http://nfl-picks-connor-stage.herokuapp.com");
+    http.get("http://nfl-picks-connor-api.herokuapp.com");
 }, 300000); // every 5 minutes (300000)
 
