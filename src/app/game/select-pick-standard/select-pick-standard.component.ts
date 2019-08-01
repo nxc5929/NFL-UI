@@ -60,7 +60,7 @@ export class SelectPickStandardComponent implements OnInit {
       }
     });
     if(isNaN(this.tiebreaker)){
-      valid = false;
+      valid = "Enter valid tiebreaker";
     }
     return valid;
   }
