@@ -2,7 +2,7 @@
     <mat-table [dataSource]="matrix">
         <ng-container matColumnDef="home">
             <mat-header-cell *matHeaderCellDef class="team"><span class="header">Home</span></mat-header-cell>
-            <mat-cell *matCellDef="let element" class="team {{element.ref.game | styleGame:element.ref.game.homeTeam}}">
+            <mat-cell *matCellDef="let element" class="team {{element.ref.game | styleGame:element.ref.game.homeTeam:false}}">
                 <span class="center">{{element.ref.game.homeTeam.teamAbv}}</span> 
             </mat-cell>
             <mat-footer-cell *matFooterCellDef class="team"></mat-footer-cell>
@@ -18,7 +18,7 @@
 
         <ng-container matColumnDef="away">
             <mat-header-cell *matHeaderCellDef class="team"><span class="header">Away</span></mat-header-cell>
-            <mat-cell *matCellDef="let element" class="team {{element.ref.game | styleGame:element.ref.game.awayTeam}}">
+            <mat-cell *matCellDef="let element" class="team {{element.ref.game | styleGame:element.ref.game.awayTeam:false}}">
                 <span class="center">{{element.ref.game.awayTeam.teamAbv}}</span>
             </mat-cell>
             <mat-footer-cell *matFooterCellDef class="team"></mat-footer-cell>
