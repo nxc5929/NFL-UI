@@ -1,5 +1,5 @@
 <mat-card>
-<mat-grid-list cols="6" rowHeight="2:1" gutterSize="5px">
+<mat-grid-list cols="{{columnNum}}" rowHeight="2:1" gutterSize="5px" (window:resize)="onResize($event)">
     <mat-grid-tile *ngFor="let player of playerStatus"
         [style.background-color]="player.picksSubmitted | submitted"
         (click)="spoof(player.account)">

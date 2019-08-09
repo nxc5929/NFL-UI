@@ -14,10 +14,17 @@ export class SwitchAccountComponent implements OnInit {
 
   playerStatus: PlayerStatus[]
 
+  columnNum: number;
+
   ngOnInit() {
+    this.columnNum = Math.floor(window.innerWidth/130);
     this.adminService.getPlayerStatus().subscribe(res => 
       this.playerStatus = res.data.sort(a => a.picksSubmitted ? 1 : 0)
     );
+  }
+
+  onResize(event) {
+    this.columnNum = Math.floor(event.target.innerWidth/130);
   }
 
   spoof(account: Account){
