@@ -15,7 +15,6 @@ import { GameModule } from './game/game.module';
 import { AccountService } from 'src/services/accounts/account-service';
 import { AdminModule } from './admin/admin.module';
 import { GameService } from 'src/services/game/game-service';
-import { InfoModule } from './info/info.module';
 
 
 @NgModule({
@@ -37,8 +36,7 @@ import { InfoModule } from './info/info.module';
     LayoutModule,
     MatButtonModule,
     MatMenuModule,
-    MatIconModule,
-    InfoModule
+    MatIconModule
   ],
   providers: [
     AccountService,

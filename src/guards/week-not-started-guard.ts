@@ -15,7 +15,7 @@ export class WeekNotStarted implements CanActivate {
             res => {
                 console.log(res);
                 if(res.data.gameStarted){
-                    this.router.navigate(["/info/too-late"]);
+                    this.router.navigate(["/game/matrix"]);
                 }
             }
         );

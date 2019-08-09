@@ -15,7 +15,7 @@ export class WeekStarted implements CanActivate {
             res => {
                 console.log(res);
                 if(!res.data.gameStarted){
-                    this.router.navigate(["/info/too-early"]);
+                    this.router.navigate(["/game/select-picks"]);
                 }
             }
         );

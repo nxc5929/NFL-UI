@@ -2,7 +2,6 @@ import { Routes, RouterModule } from '@angular/router';
 import { NgModule } from '@angular/core';
 import { AuthGuard } from 'src/guards/auth-guard';
 import { MatrixComponent } from './matrix/matrix.component';
-import { SelectPickSortableComponent } from './select-pick-sortable/select-pick-sortable.component';
 import { StandingsComponent } from './standings/standings.component';
 import { SurvivorComponent } from './survivor/survivor.component';
 import { WeekNotStarted } from 'src/guards/week-not-started-guard';
