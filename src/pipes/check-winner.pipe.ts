@@ -4,7 +4,7 @@ import { Game, Team } from 'src/services/game/pick-model';
 @Pipe({ name: 'styleGame' })
 export class WinnerPipe implements PipeTransform {
     transform(game: Game, referenceTeam: Team, waitTillEnd: boolean = true) {
-        if (game.final || !waitTillEnd) {
+        if (game.gameStarted && (game.final || !waitTillEnd)) {
             var homeTeam: number = game.homeTeam.id;
             var homeScore: number = game.homeScore;
             var awayTeam: number = game.awayTeam.id;
