@@ -56,10 +56,10 @@ export class MatrixComponent implements OnInit {
     }else if(refRow == this.statusMatrix[2]["ref"]){
       var correct = 0;
       player.picks.forEach(pick => {
-        var winnerDiff = pick.game.awayScore - pick.game.homeScore;
+        var winnerDiff = pick.game.homeScore - pick.game.awayScore;
         if((winnerDiff > 0 && pick.game.homeTeam.id == pick.pick.id) ||
            (winnerDiff < 0 && pick.game.awayTeam.id == pick.pick.id)){
-          correct++;
+          correct = correct + 1;
         }
       });
       return correct;
