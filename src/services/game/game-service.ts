@@ -33,8 +33,12 @@ export class GameService {
     return this.http.get<WeekModel>(`${environment.secureApiURL}/picks/matrix`, this.getHttpOptions());
   }
 
-  getWeeks(): Observable<string>{
-    return this.http.get<string>(`${environment.secureApiURL}/picks/weeks`, this.getHttpOptions());
+  getPastMatrix(weekId: number): Observable<WeekModel>{
+    return this.http.get<WeekModel>(`${environment.secureApiURL}/picks/${weekId}/matrix`, this.getHttpOptions());
+  }
+
+  getWeeks(): Observable<GenericResponse<string[]>>{
+    return this.http.get<GenericResponse<string[]>>(`${environment.secureApiURL}/picks/weeks`, this.getHttpOptions());
   }
 
   getSurvivor(): Observable<GenericResponse<any>>{

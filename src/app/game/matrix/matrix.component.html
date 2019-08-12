@@ -1,22 +1,25 @@
-<div class="container">
+<mat-card>
     <mat-table [dataSource]="matrix">
         <ng-container matColumnDef="home">
             <mat-header-cell *matHeaderCellDef class="team"><span class="header">Home</span></mat-header-cell>
-            <mat-cell *matCellDef="let element" class="team {{element.ref.game | styleGame:element.ref.game.homeTeam:false}}">
-                <span class="center">{{element.ref.game.homeTeam.teamAbv}}</span> 
+            <mat-cell *matCellDef="let element"
+                class="team {{element.ref.game | styleGame:element.ref.game.homeTeam:false}}">
+                <span class="center">{{element.ref.game.homeTeam.teamAbv}}</span>
             </mat-cell>
         </ng-container>
 
         <ng-container matColumnDef="spread">
             <mat-header-cell *matHeaderCellDef class="spread"><span class="header">Spread</span></mat-header-cell>
             <mat-cell *matCellDef="let element" class="spread">
-                <span class="center">{{element.ref.game.spread.favTeam.teamAbv}} (-{{element.ref.game.spread.points}})</span>
+                <span class="center">{{element.ref.game.spread.favTeam.teamAbv}}
+                    (-{{element.ref.game.spread.points}})</span>
             </mat-cell>
         </ng-container>
 
         <ng-container matColumnDef="away">
             <mat-header-cell *matHeaderCellDef class="team"><span class="header">Away</span></mat-header-cell>
-            <mat-cell *matCellDef="let element" class="team {{element.ref.game | styleGame:element.ref.game.awayTeam:false}}">
+            <mat-cell *matCellDef="let element"
+                class="team {{element.ref.game | styleGame:element.ref.game.awayTeam:false}}">
                 <span class="center">{{element.ref.game.awayTeam.teamAbv}}</span>
             </mat-cell>
         </ng-container>
@@ -30,7 +33,8 @@
 
         <ng-container *ngFor="let playerKey of playerKeys" matColumnDef="{{playerKey}}">
             <mat-header-cell *matHeaderCellDef class="team"><span class="header">{{playerKey}}</span></mat-header-cell>
-            <mat-cell *matCellDef="let element" class="team {{element[playerKey].game | styleGame:element[playerKey].pick}}">
+            <mat-cell *matCellDef="let element"
+                class="team {{element[playerKey].game | styleGame:element[playerKey].pick}}">
                 <span class="center">{{element[playerKey].pick.teamAbv}}</span>
             </mat-cell>
         </ng-container>
@@ -40,28 +44,34 @@
     </mat-table>
 
     <mat-table [dataSource]="statusMatrix">
-            <ng-container matColumnDef="home">
-                <mat-cell *matCellDef="let element" class="team"></mat-cell>
-            </ng-container>
-    
-            <ng-container matColumnDef="spread">
-                <mat-cell *matCellDef="let element" class="spread"></mat-cell>
-            </ng-container>
-    
-            <ng-container matColumnDef="away">
-                <mat-cell *matCellDef="let element" class="team"></mat-cell>
-            </ng-container>
-    
-            <ng-container matColumnDef="score">
-                <mat-cell *matCellDef="let element" class="score"></mat-cell>
-            </ng-container>
-    
-            <ng-container *ngFor="let playerKey of playerKeys" matColumnDef="{{playerKey}}">
-                <mat-cell *matCellDef="let element" class="team">
-                    <span class="center">{{getStatusMatrix(playerKey, element["ref"])}}</span>
-                </mat-cell>
-            </ng-container>
+        <ng-container matColumnDef="home">
+            <mat-cell *matCellDef="let element" class="team"></mat-cell>
+        </ng-container>
 
-            <mat-row *matRowDef="let row; columns: displayedColumns;"></mat-row>
-        </mat-table>
-</div>
+        <ng-container matColumnDef="spread">
+            <mat-cell *matCellDef="let element" class="spread"></mat-cell>
+        </ng-container>
+
+        <ng-container matColumnDef="away">
+            <mat-cell *matCellDef="let element" class="team"></mat-cell>
+        </ng-container>
+
+        <ng-container matColumnDef="score">
+            <mat-cell *matCellDef="let element" class="score"></mat-cell>
+        </ng-container>
+
+        <ng-container *ngFor="let playerKey of playerKeys" matColumnDef="{{playerKey}}">
+            <mat-cell *matCellDef="let element" class="team">
+                <span class="center">{{getStatusMatrix(playerKey, element["ref"])}}</span>
+            </mat-cell>
+        </ng-container>
+
+        <mat-row *matRowDef="let row; columns: displayedColumns;"></mat-row>
+    </mat-table>
+    <mat-form-field class="example-full-width">
+        <mat-label>Select Week</mat-label>
+        <mat-select [value]="survivorId" (selectionChange)="changeWeek($event.value)">
+            <mat-option *ngFor="let week of weeks; index as i" [value]="week">Week {{i+1}}</mat-option>
+        </mat-select>
+    </mat-form-field>
+</mat-card>

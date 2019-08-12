@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { GameService } from 'src/services/game/game-service';
-import { Player, Game, Team } from 'src/services/game/pick-model';
+import { Player, Game, Team, WeekModel } from 'src/services/game/pick-model';
+import { GenericResponse } from 'src/services/generic-response';
 
 @Component({
   selector: 'matrix',
@@ -19,9 +20,19 @@ export class MatrixComponent implements OnInit {
   confidenceWeekColumns: string[] = ['home', 'away', 'score'];;
   displayedColumns: string[];
 
+  weeks: string[];
+
   ngOnInit() {
-    this.gameService.getMatrix().subscribe(res => {
-      console.log(res)
+    this.gameService.getMatrix().subscribe(res => this.handleWeek(res));
+    this.gameService.getWeeks().subscribe(res => this.weeks = res.data);
+  }
+
+  changeWeek(weekId: number){
+    this.gameService.getPastMatrix(weekId).subscribe(res => this.handleWeek(res));
+  }
+
+  handleWeek(res: WeekModel){
+    console.log(res)
       this.matrix = res.data.matrix;
       if(res.data.normalWeek){
         this.displayedColumns = this.normalWeekColumns;
@@ -34,8 +45,6 @@ export class MatrixComponent implements OnInit {
       this.sortNames(this.playerKeys);
       this.displayedColumns = this.displayedColumns.concat(this.playerKeys);
       this.players = res.data.players;
-    });
-    // this.gameService.getWeeks().subscribe(res => console.log(res));
   }
 
   getStatusMatrix(playerKey: string, refRow: string){

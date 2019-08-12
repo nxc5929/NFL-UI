@@ -2,19 +2,19 @@
 // `ng build --prod` replaces `environment.ts` with `environment.prod.ts`.
 // The list of file replacements can be found in `angular.json`.
 
-export const environment = {
-  production: false,
-  apiURL: 'http://localhost:8080/api/v1',
-  secureApiURL: 'http://localhost:8080/api/v1/secure',
-  adminApiURL: 'http://localhost:8080/api/v1/admin',
-};
-
 // export const environment = {
-//   production: true,
-//   apiURL: 'https://nfl-picks-connor-api.herokuapp.com/api/v1',
-//   secureApiURL: 'https://nfl-picks-connor-api.herokuapp.com/api/v1/secure',
-//   adminApiURL: 'https://nfl-picks-connor-api.herokuapp.com/api/v1/admin',
+//   production: false,
+//   apiURL: 'http://localhost:8080/api/v1',
+//   secureApiURL: 'http://localhost:8080/api/v1/secure',
+//   adminApiURL: 'http://localhost:8080/api/v1/admin',
 // };
+
+export const environment = {
+  production: true,
+  apiURL: 'https://nfl-picks-connor-api.herokuapp.com/api/v1',
+  secureApiURL: 'https://nfl-picks-connor-api.herokuapp.com/api/v1/secure',
+  adminApiURL: 'https://nfl-picks-connor-api.herokuapp.com/api/v1/admin',
+};
 
 /*
  * For easier debugging in development mode, you can import the following file
