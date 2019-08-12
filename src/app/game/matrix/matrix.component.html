@@ -70,7 +70,7 @@
     </mat-table>
     <mat-form-field class="example-full-width">
         <mat-label>Select Week</mat-label>
-        <mat-select [value]="survivorId" (selectionChange)="changeWeek($event.value)">
+        <mat-select (selectionChange)="changeWeek($event.value)">
             <mat-option *ngFor="let week of weeks; index as i" [value]="week">Week {{i+1}}</mat-option>
         </mat-select>
     </mat-form-field>
