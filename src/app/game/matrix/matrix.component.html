@@ -43,7 +43,7 @@
         <mat-row *matRowDef="let row; columns: displayedColumns;"></mat-row>
     </mat-table>
 
-    <mat-table [dataSource]="statusMatrix">
+    <mat-table class="topBorder" [dataSource]="statusMatrix">
         <ng-container matColumnDef="home">
             <mat-cell *matCellDef="let element" class="team">
                 <div class="fixed"><b>{{element["ref"]}}</b></div>

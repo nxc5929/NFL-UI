@@ -62,3 +62,7 @@ mat-row{
 .fixed{
     position: fixed;
 }
+
+.topBorder{
+    border-top: solid black;
+}
