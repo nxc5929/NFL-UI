@@ -12,11 +12,11 @@ export class GameGridViewComponent implements OnInit {
   columnNum: number;
 
   ngOnInit() {
-    this.columnNum = Math.floor(window.innerWidth/200);
+    this.columnNum = Math.floor(window.innerWidth/180);
   }
 
   onResize(event) {
-    this.columnNum = Math.floor(event.target.innerWidth/200);
+    this.columnNum = Math.floor(event.target.innerWidth/180);
   }
 
 }
