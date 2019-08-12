@@ -15,7 +15,7 @@ export class MatrixComponent implements OnInit {
   players: Map<String, Player>;
   playerKeys: string[];
   matrix: any;
-  statusMatrix: Array<any> = [{"ref": "tiebreaker"}, {"ref": "survivor"}, {"ref": "# correct"}];
+  statusMatrix: Array<any> = [{"ref": "Tiebreaker"}, {"ref": "Survivor"}, {"ref": "# Correct"}];
   normalWeekColumns: string[] = ['home', 'spread', 'away', 'score'];
   confidenceWeekColumns: string[] = ['home', 'away', 'score'];;
   displayedColumns: string[];
@@ -61,8 +61,8 @@ export class MatrixComponent implements OnInit {
            (winnerDiff < 0 && pick.game.awayTeam.id == pick.pick.id)){
           correct++;
         }
-        return correct;
-      })
+      });
+      return correct;
     }
   }
 
