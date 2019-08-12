@@ -45,7 +45,9 @@
 
     <mat-table [dataSource]="statusMatrix">
         <ng-container matColumnDef="home">
-            <mat-cell *matCellDef="let element" class="team"></mat-cell>
+            <mat-cell *matCellDef="let element" class="team">
+                <div class="fixed">{{element["ref"]}}</div>
+            </mat-cell>
         </ng-container>
 
         <ng-container matColumnDef="spread">

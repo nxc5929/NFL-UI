@@ -58,3 +58,7 @@ mat-row{
 .spread{
     min-width: 50px;
 }
+
+.fixed{
+    position: fixed;
+}

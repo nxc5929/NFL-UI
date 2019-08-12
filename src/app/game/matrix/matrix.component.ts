@@ -15,7 +15,7 @@ export class MatrixComponent implements OnInit {
   players: Map<String, Player>;
   playerKeys: string[];
   matrix: any;
-  statusMatrix: Array<any> = [{"ref": "tie"}, {"ref": "survivor"}, {"ref": "correct"}];
+  statusMatrix: Array<any> = [{"ref": "tiebreaker"}, {"ref": "survivor"}, {"ref": "# correct"}];
   normalWeekColumns: string[] = ['home', 'spread', 'away', 'score'];
   confidenceWeekColumns: string[] = ['home', 'away', 'score'];;
   displayedColumns: string[];
@@ -49,13 +49,20 @@ export class MatrixComponent implements OnInit {
 
   getStatusMatrix(playerKey: string, refRow: string){
     var player: Player = this.players[playerKey];
-    if(refRow == "tie"){
+    if(refRow == this.statusMatrix[0]["ref"]){
       return player.tiebreaker;
-    }else if(refRow == "survivor"){
+    }else if(refRow == this.statusMatrix[1]["ref"]){
       return player.survivor.pick.teamAbv;
-    }else if(refRow == "correct"){
+    }else if(refRow == this.statusMatrix[2]["ref"]){
       var correct = 0;
-      return 2;
+      player.picks.forEach(pick => {
+        var winnerDiff = pick.game.awayScore - pick.game.homeScore;
+        if((winnerDiff > 0 && pick.game.homeTeam.id == pick.pick.id) ||
+           (winnerDiff < 0 && pick.game.awayTeam.id == pick.pick.id)){
+          correct++;
+        }
+        return correct;
+      })
     }
   }
 
