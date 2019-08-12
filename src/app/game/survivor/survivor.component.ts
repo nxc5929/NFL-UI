@@ -23,10 +23,4 @@ export class SurvivorComponent implements OnInit {
       }
     );
   }
-
-  winner(won: boolean){
-    console.log(won);
-    return won ? "winner" : "loser"
-  }
-
 }

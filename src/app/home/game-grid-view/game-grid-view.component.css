@@ -1,0 +1,19 @@
+img{
+    max-height: 40px;
+}
+
+.stack{
+    display: inline-grid;
+}
+
+.smallText{
+    text-align: center;
+    font-size: 12px;
+}
+
+.winner{
+    background-color: lawngreen;
+}
+.loser{
+    background-color: red;
+}

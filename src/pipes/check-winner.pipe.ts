@@ -3,7 +3,7 @@ import { Game, Team } from 'src/services/game/pick-model';
 
 @Pipe({ name: 'styleGame' })
 export class WinnerPipe implements PipeTransform {
-    transform(game: Game, referenceTeam: Team, waitTillEnd: boolean = true) {
+    transform(game: Game, referenceTeam: Team, waitTillEnd: boolean = true, directStyle: boolean = false) {
         if (game.gameStarted && (game.final || !waitTillEnd)) {
             var homeTeam: number = game.homeTeam.id;
             var homeScore: number = game.homeScore;
@@ -24,9 +24,9 @@ export class WinnerPipe implements PipeTransform {
 
             if ((homeScore > awayScore && homeTeam == referenceTeam.id)
                 || (homeScore < awayScore && awayTeam == referenceTeam.id)) {
-                return "winner";
+                return directStyle ? "lawngreen": "winner";
             } else {
-                return "loser";
+                return directStyle ? "red" : "loser";
             }
         }
         return "";

@@ -1,9 +1,18 @@
 <mat-card class="main">
+    <mat-radio-group [value]="normalWeekSelected" (change)="updateWeek($event)" aria-label="Select Type of Week">
+        <mat-radio-button value=true>Standard Week</mat-radio-button>
+        <br>
+        <mat-radio-button value=false>Confidence Week</mat-radio-button>
+    </mat-radio-group>
+
+    <ng-template [ngIf]="normalWeek">
         <game-spread *ngFor="let game of games" [game]="game"></game-spread>
-        <mat-card>
-            <button (click)="submit()" [disabled]="loading" class="btn btn-primary">
-                <span *ngIf="loading" class="spinner-border spinner-border-sm mr-1"></span>
-                Submit
-            </button>
-        </mat-card>
+    </ng-template>
+
+    <mat-card>
+        <button (click)="submit()" [disabled]="loading" class="btn btn-primary">
+            <span *ngIf="loading" class="spinner-border spinner-border-sm mr-1"></span>
+            Submit
+        </button>
     </mat-card>
+</mat-card>

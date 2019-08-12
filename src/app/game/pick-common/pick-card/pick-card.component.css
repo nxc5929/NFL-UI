@@ -2,6 +2,10 @@
     display: inline-block;
 }
 
+.center{
+    margin: auto;
+}
+
 mat-card {
     display: block;
     padding: 8px;
@@ -46,6 +50,13 @@ mat-radio-button .subtitle {
     font-size: 0.8em;
     margin-top: 2px;
     max-width: 150px;
+}
+
+.smallFont{
+    margin: auto;
+    text-align: center;
+    flex: 0.5;
+    font-size: 12px;
 }
 
 /* Big Screen */

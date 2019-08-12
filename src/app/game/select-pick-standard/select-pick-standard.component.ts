@@ -13,7 +13,7 @@ export class SelectPickStandardComponent implements OnInit {
   constructor(private gameService: GameService, private alertService: AlertService) { }
 
   picks: Pick[];
-  survivor: Team;
+  survivor: Pick;
   tiebreaker: number
   player: Player
   playerId: number
@@ -27,6 +27,7 @@ export class SelectPickStandardComponent implements OnInit {
       this.playerId = res.data.id;
       this.picks = res.data.picks.sort((a, b) => a.game.id - b.game.id);
       this.survivor = res.data.survivor;
+      console.log("Survivor: " + this.survivor.pick.id);
       this.tiebreaker = res.data.tiebreaker;
     });
   }
@@ -48,7 +49,7 @@ export class SelectPickStandardComponent implements OnInit {
     }
   }
 
-  updateSurvivor(survivor: Team){
+  updateSurvivor(survivor: Pick){
     this.survivor = survivor;
   }
 

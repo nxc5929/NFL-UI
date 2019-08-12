@@ -18,7 +18,7 @@ export class SelectPickSortableComponent implements OnInit {
   picksTop: Pick[];
   picksBottom: Pick[];
 
-  survivor: Team;
+  survivor: Pick;
   playerId: number;
   player: Player;
   playingTeams: Team[];
@@ -61,7 +61,7 @@ export class SelectPickSortableComponent implements OnInit {
     this.createTwoLists();
   }
 
-  updateSurvivor(survivor: Team){
+  updateSurvivor(survivor: Pick){
     this.survivor = survivor;
   }
 

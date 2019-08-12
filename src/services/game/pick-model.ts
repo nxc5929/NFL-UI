@@ -10,7 +10,7 @@ export class Week{
     constructor(
         public id: number,
         public games: Game[],
-        public players: Player[],
+        public players: Map<string, Player>,
         public normalWeek: boolean,
         public weekStarted: boolean,
         public matrix: any
@@ -21,7 +21,7 @@ export class Player{
     constructor(
         public id: number,
         public picks: Pick[],
-        public survivor: Team,
+        public survivor: Pick,
         public tiebreaker: number,
         public account: Account
     ){}
