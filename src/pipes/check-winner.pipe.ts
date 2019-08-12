@@ -26,7 +26,7 @@ export class WinnerPipe implements PipeTransform {
                 || (homeScore < awayScore && awayTeam == referenceTeam.id)) {
                 return directStyle ? "lawngreen": "winner";
             } else {
-                return directStyle ? "red" : "loser";
+                return directStyle ? "" : "loser";
             }
         }
         return "";
