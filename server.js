@@ -13,9 +13,9 @@ app.get('/*', function(req,res) {
 // Start the app by listening on the default Heroku port
 app.listen(process.env.PORT || 4200);
 
-var http = require("http");
-setInterval(function() {
-    http.get("http://nfl-picks-connor-stage.herokuapp.com");
-    http.get("http://nfl-picks-connor-api.herokuapp.com");
-}, 300000); // every 5 minutes (300000)
+// var http = require("http");
+// setInterval(function() {
+//     http.get("http://nfl-picks-connor-stage.herokuapp.com");
+//     http.get("http://nfl-picks-connor-api.herokuapp.com");
+// }, 300000); // every 5 minutes (300000)
 

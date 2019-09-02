@@ -1,13 +1,12 @@
 import { HttpClientModule } from '@angular/common/http';
 import { NgModule } from '@angular/core';
 import { HelperPipe } from 'src/pipes/helper.pipe';
-import { WinnerPipe } from './check-winner.pipe';
 import { SubmittedPicksPipe } from './submitted-picks.pipe';
 
 @NgModule({
-  declarations: [HelperPipe, WinnerPipe, SubmittedPicksPipe],
+  declarations: [HelperPipe, SubmittedPicksPipe],
   imports: [HttpClientModule],
-  exports: [HelperPipe, WinnerPipe, SubmittedPicksPipe],
+  exports: [HelperPipe, SubmittedPicksPipe],
   providers: []
 })
 export class PipeModule { }

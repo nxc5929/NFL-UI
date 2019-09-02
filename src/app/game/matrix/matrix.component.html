@@ -3,7 +3,7 @@
         <ng-container matColumnDef="home">
             <mat-header-cell *matHeaderCellDef class="team"><span class="header">Home</span></mat-header-cell>
             <mat-cell *matCellDef="let element"
-                class="team {{element.ref.game | styleGame:element.ref.game.homeTeam:false}}">
+                class="team {{checkGameWinner(element.ref.game, element.ref.game.homeTeam)}}">
                 <span class="center">{{element.ref.game.homeTeam.teamAbv}}</span>
             </mat-cell>
         </ng-container>
@@ -19,7 +19,7 @@
         <ng-container matColumnDef="away">
             <mat-header-cell *matHeaderCellDef class="team"><span class="header">Away</span></mat-header-cell>
             <mat-cell *matCellDef="let element"
-                class="team {{element.ref.game | styleGame:element.ref.game.awayTeam:false}}">
+                class="team {{checkGameWinner(element.ref.game, element.ref.game.awayTeam)}}">
                 <span class="center">{{element.ref.game.awayTeam.teamAbv}}</span>
             </mat-cell>
         </ng-container>
@@ -34,7 +34,7 @@
         <ng-container *ngFor="let playerKey of playerKeys" matColumnDef="{{playerKey}}">
             <mat-header-cell *matHeaderCellDef class="team"><span class="header">{{playerKey}}</span></mat-header-cell>
             <mat-cell *matCellDef="let element"
-                class="team {{element[playerKey].game | styleGame:element[playerKey].pick}}">
+                class="team {{checkPickWinner(element[playerKey].game, element[playerKey].pick)}}">
                 <span class="center">{{element[playerKey].pick.teamAbv}}</span>
             </mat-cell>
         </ng-container>

@@ -1,7 +1,7 @@
 <mat-grid-list cols="{{columnNum}}" rowHeight="2:1" gutterSize="5px" (window:resize)="onResize($event)">
     <mat-grid-tile 
         *ngFor="let pick of picks" 
-        [style.background-color]="pick.game | styleGame:pick.pick:false:true">
+        [style.background-color]="getWinner(pick.game, pick.pick)">
         <div class="stack">
             <img src="assets/logos/{{pick.game.homeTeam.teamAbv}}.png">
             <span class="smallText">{{pick.game.homeTeam.teamAbv}}</span>

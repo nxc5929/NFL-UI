@@ -1,7 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { GameService } from 'src/services/game/game-service';
-import { Player, Game, Team, WeekModel } from 'src/services/game/pick-model';
+import { Player, Game, Team, WeekModel, Pick } from 'src/services/game/pick-model';
 import { GenericResponse } from 'src/services/generic-response';
+import { WinnerService } from 'src/services/game/check-winner';
 
 @Component({
   selector: 'matrix',
@@ -10,7 +11,7 @@ import { GenericResponse } from 'src/services/generic-response';
 })
 export class MatrixComponent implements OnInit {
 
-  constructor(private gameService: GameService) { }
+  constructor(private gameService: GameService, private winnerServie: WinnerService) { }
 
   players: Map<String, Player>;
   playerKeys: string[];
@@ -52,16 +53,21 @@ export class MatrixComponent implements OnInit {
     if(refRow == this.statusMatrix[0]["ref"]){
       return player.tiebreaker;
     }else if(refRow == this.statusMatrix[1]["ref"]){
-      return player.survivor.pick.teamAbv;
+      if(player.survivor){
+        return player.survivor.pick.teamAbv;
+      }
+      return "-";
     }else if(refRow == this.statusMatrix[2]["ref"]){
       var correct = 0;
-      player.picks.forEach(pick => {
-        var winnerDiff = pick.game.homeScore - pick.game.awayScore;
-        if((winnerDiff > 0 && pick.game.homeTeam.id == pick.pick.id) ||
-           (winnerDiff < 0 && pick.game.awayTeam.id == pick.pick.id)){
+      this.matrix.forEach(row => {
+        var pick: Pick = row[playerKey];
+        console.log();
+        if(pick.game.final && this.winnerServie.winners(pick.game, pick.pick)){
+          console.log("Correct: " + correct);
           correct = correct + 1;
         }
       });
+      console.log(player);
       return correct;
     }
   }
@@ -77,6 +83,22 @@ export class MatrixComponent implements OnInit {
       }
       return aLast.localeCompare(bLast);
     });
+  }
+
+  checkGameWinner(game: Game, refTeam: Team){
+    if(game.gameStarted){
+      if(this.winnerServie.winners(game, refTeam)){
+        return "winner";
+      }
+    }
+  }
+
+  checkPickWinner(game: Game, refTeam: Team){
+    if(game.final){
+      if(this.winnerServie.winners(game, refTeam)){
+        return "winner";
+      }
+    }
   }
 
 }

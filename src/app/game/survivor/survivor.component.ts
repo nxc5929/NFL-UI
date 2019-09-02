@@ -1,5 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { GameService } from 'src/services/game/game-service';
+import { Game, Team } from 'src/services/game/pick-model';
+import { WinnerService } from 'src/services/game/check-winner';
 
 @Component({
   selector: 'survivor',
@@ -12,7 +14,7 @@ export class SurvivorComponent implements OnInit {
 
   playerKeys: string[];
 
-  constructor(private gameService: GameService) { }
+  constructor(private gameService: GameService, private winnerServie: WinnerService) { }
 
   ngOnInit() {
     this.gameService.getSurvivor().subscribe(
@@ -22,5 +24,11 @@ export class SurvivorComponent implements OnInit {
         console.log(this.survivors);
       }
     );
+  }
+
+  checkWinner(game: Game, refTeam: Team){
+    if(game.final && this.winnerServie.winners(game, refTeam)){
+      return "winner";
+    }
   }
 }
