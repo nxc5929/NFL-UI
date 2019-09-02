@@ -55,8 +55,7 @@ mat-row{
 }
 
 .fixed{
-    position: fixed;
-    -webkit-backface-visibility: hidden;
+    position: absolute;
 }
 
 .topBorder{
