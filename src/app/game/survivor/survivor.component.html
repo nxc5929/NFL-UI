@@ -3,8 +3,8 @@
 
         <ng-container *ngFor="let playerKey of playerKeys" matColumnDef="{{playerKey}}">
             <mat-header-cell *matHeaderCellDef><span class="header">{{playerKey}}</span></mat-header-cell>
-            <mat-cell *matCellDef="let element" class="{{checkWinner(element[playerKey].game, element[playerKey].pick)}}">
-                <span class="center">{{element[playerKey].pick.teamAbv}}</span>
+            <mat-cell *matCellDef="let element" class="{{checkWinner(element[playerKey])}}">
+                <span class="center">{{getValue(element[playerKey])}}</span>
             </mat-cell>
         </ng-container>
 

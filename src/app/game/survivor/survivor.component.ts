@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { GameService } from 'src/services/game/game-service';
-import { Game, Team } from 'src/services/game/pick-model';
+import { Game, Team, Pick } from 'src/services/game/pick-model';
 import { WinnerService } from 'src/services/game/check-winner';
 
 @Component({
@@ -26,8 +26,18 @@ export class SurvivorComponent implements OnInit {
     );
   }
 
-  checkWinner(game: Game, refTeam: Team){
-    if(game.final && this.winnerServie.winners(game, refTeam)){
+  getValue(pick: Pick){
+    if(pick){
+      return pick.pick.teamAbv;
+    }
+    return "-";
+  }
+
+  checkWinner(pick: Pick){
+    if(!pick){
+      return;
+    }
+    if(pick.game.final && this.winnerServie.winners(pick.game, pick.pick)){
       return "winner";
     }
   }
