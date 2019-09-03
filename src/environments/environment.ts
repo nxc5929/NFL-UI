@@ -11,9 +11,9 @@
 
 export const environment = {
   production: true,
-  apiURL: 'https://nfl-picks-connor-api.herokuapp.com/api/v1',
-  secureApiURL: 'https://nfl-picks-connor-api.herokuapp.com/api/v1/secure',
-  adminApiURL: 'https://nfl-picks-connor-api.herokuapp.com/api/v1/admin',
+  apiURL: 'http://nfl-picks-connor.herokuapp.com/api/v1',
+  secureApiURL: 'http://nfl-picks-connor.herokuapp.com/api/v1/secure',
+  adminApiURL: 'http://nfl-picks-connor.herokuapp.com/api/v1/admin',
 };
 
 /*

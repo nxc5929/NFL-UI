@@ -11,14 +11,14 @@ export class WeekStarted implements CanActivate {
     ) {}
 
     canActivate(route: ActivatedRouteSnapshot, state: RouterStateSnapshot) {
-        this.gameService.getWeekInfo().subscribe(
-            res => {
-                console.log(res);
-                if(!res.data.gameStarted){
-                    this.router.navigate(["/game/select-picks"]);
-                }
-            }
-        );
+        // this.gameService.getWeekInfo().subscribe(
+        //     res => {
+        //         console.log(res);
+        //         if(!res.data.gameStarted){
+        //             this.router.navigate(["/game/select-picks"]);
+        //         }
+        //     }
+        // );
         return true;
     }
 }

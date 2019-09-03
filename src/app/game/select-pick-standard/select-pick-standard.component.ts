@@ -28,7 +28,11 @@ export class SelectPickStandardComponent implements OnInit {
       this.picks = res.data.picks.sort((a, b) => a.game.id - b.game.id);
       this.survivor = res.data.survivor;
       console.log("Survivor: " + this.survivor.pick.id);
-      this.tiebreaker = res.data.tiebreaker;
+      if(res.data.tiebreaker){
+        this.tiebreaker = res.data.tiebreaker;
+      }else{
+        this.tiebreaker = 0;
+      }
     });
   }
 
