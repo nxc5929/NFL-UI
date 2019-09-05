@@ -35,11 +35,10 @@ export class SelectPickStandardComponent implements OnInit {
   submit() {
     this.loading = true;
     var valid = this.validateForm();
-    if (!valid) {
-      this.alertService.error("Please fill in all picks!");
+    if (valid != "ok") {
+      this.alertService.error(valid);
       this.loading = false;
     } else {
-
       this.gameService.setPicks(new Player(this.playerId, this.picks, this.survivor, this.tiebreaker, null))
         .subscribe(
           success => this.alertService.success("Successfully Submitted Picks"),
@@ -60,11 +59,12 @@ export class SelectPickStandardComponent implements OnInit {
   validateForm(): string {
     var valid = "ok";
     this.picks.forEach(pick => {
+      console.log(pick.pick);
       if (pick.pick == null) {
-        valid = "Please Select ";
+        valid = "Please make selection for " + pick.game.awayTeam.teamAbv + " vs " + pick.game.homeTeam.teamAbv + " game";
       }
     });
-    if(isNaN(this.tiebreaker)){
+    if(this.tiebreaker <= 0){
       valid = "Enter valid tiebreaker";
     }
     return valid;
