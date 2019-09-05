@@ -3,7 +3,7 @@
     <!-- <pick-survivor [games]="picks" [survivor]="survivor" (onChange)="updateSurvivor($event)"></pick-survivor> -->
     <mat-card>
         <mat-form-field class="example-full-width">
-            <input matInput placeholder="Tiebreaker" (input)="tiebreaker = $event.target.value" [value]="tiebreaker">
+            <input matInput placeholder="Tiebreaker" (input)="updateTiebreaker($event.target.value)" [value]="tiebreaker">
         </mat-form-field>
         <button (click)="submit()" [disabled]="loading" class="btn btn-primary">
             <span *ngIf="loading" class="spinner-border spinner-border-sm mr-1"></span>
