@@ -20,7 +20,8 @@ export class SurvivorComponent implements OnInit {
     this.gameService.getSurvivor().subscribe(
       res => {
         this.survivors = res.data;
-        this.playerKeys = Object.keys(this.survivors[0]);;
+        this.playerKeys = Object.keys(this.survivors[0]);
+        this.sortNames(this.playerKeys);
         console.log(this.survivors);
       }
     );
@@ -40,5 +41,18 @@ export class SurvivorComponent implements OnInit {
     if(pick.game.final && this.winnerServie.winners(pick.game, pick.pick)){
       return "winner";
     }
+  }
+
+  sortNames(playerKeys: String[]){
+    playerKeys.sort((a, b) => {
+      var aFirst = a.split(" ")[0];
+      var aLast = a.split(" ")[1];
+      var bFirst = b.split(" ")[0];
+      var bLast = b.split(" ")[1];
+      if(aLast.localeCompare(bLast) == 0){
+        return aFirst.localeCompare(bFirst);
+      }
+      return aLast.localeCompare(bLast);
+    });
   }
 }

@@ -16,7 +16,7 @@ const routes: Routes = [
         { path: 'select-picks', component: SelectPicksComponent, canActivate: [WeekNotStarted]},
         { path: 'matrix', component: MatrixComponent, canActivate: [WeekStarted]},
         { path: 'standings', component: StandingsComponent},
-        { path: 'survivors', component: SurvivorComponent}
+        { path: 'survivors', component: SurvivorComponent, canActivate: [WeekStarted]}
       ]
     }
   ];

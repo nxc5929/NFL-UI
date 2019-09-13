@@ -1,6 +1,16 @@
+mat-card{
+    overflow: auto;
+}
+
 mat-row{
     min-height: 20px;
 }
+
+mat-header-cell,
+mat-cell{
+    min-width: 30px;
+}
+
 
 mat-cell:first-of-type, 
 mat-header-cell:first-of-type,
