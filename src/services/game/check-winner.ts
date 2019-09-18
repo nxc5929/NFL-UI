@@ -28,4 +28,9 @@ export class WinnerService {
             return false;
         };
     }
+
+    winnersNoSpread(game: Game, referenceTeam: Team): boolean {
+        game.spread.points = 0;
+        return this.winners(game, referenceTeam); 
+    }
 }

@@ -63,7 +63,7 @@
         </ng-container>
 
         <ng-container *ngFor="let playerKey of playerKeys" matColumnDef="{{playerKey}}">
-            <mat-cell *matCellDef="let element" class="team">
+            <mat-cell *matCellDef="let element" class="team {{getStatusClass(playerKey, element['ref'])}}">
                 <span class="center">{{getStatusMatrix(playerKey, element["ref"])}}</span>
             </mat-cell>
         </ng-container>

@@ -14,7 +14,7 @@ export class SurvivorComponent implements OnInit {
 
   playerKeys: string[];
 
-  constructor(private gameService: GameService, private winnerServie: WinnerService) { }
+  constructor(private gameService: GameService, private winnerService: WinnerService) { }
 
   ngOnInit() {
     this.gameService.getSurvivor().subscribe(
@@ -22,7 +22,6 @@ export class SurvivorComponent implements OnInit {
         this.survivors = res.data;
         this.playerKeys = Object.keys(this.survivors[0]);
         this.sortNames(this.playerKeys);
-        console.log(this.survivors);
       }
     );
   }
@@ -38,8 +37,12 @@ export class SurvivorComponent implements OnInit {
     if(!pick){
       return;
     }
-    if(pick.game.final && this.winnerServie.winners(pick.game, pick.pick)){
-      return "winner";
+    if(pick.game.final){
+      if(this.winnerService.winnersNoSpread(pick.game, pick.pick)){
+        return "winner";
+      }else{
+        return "loser";
+      }
     }
   }
 

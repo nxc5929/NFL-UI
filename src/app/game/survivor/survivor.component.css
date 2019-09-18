@@ -43,3 +43,7 @@ mat-footer-cell:last-of-type{
 .winner{
     background-color: lawngreen;
 }
+
+.loser{
+    background-color: #ffcccc;
+}

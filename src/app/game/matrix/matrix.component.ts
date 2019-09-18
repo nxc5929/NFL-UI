@@ -101,4 +101,23 @@ export class MatrixComponent implements OnInit {
     }
   }
 
+  getStatusClass(playerKey: string, refRow: string){
+    if(refRow == "Survivor"){
+      var player: Player = this.players[playerKey];
+      if(player.survivor == null){
+        return;
+      }
+      var game: Game = player.survivor.game;
+      var pick: Team = player.survivor.pick;
+      if(game.final){
+        if(this.winnerServie.winnersNoSpread(game, pick)){
+          return "winner";
+        }else{
+          return "loser";
+        }
+      }
+    }
+    return;
+  }
+
 }

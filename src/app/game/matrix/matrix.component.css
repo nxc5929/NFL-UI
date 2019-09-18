@@ -42,6 +42,10 @@ mat-row{
     background-color: lawngreen;
 }
 
+.loser{
+    background-color: #ffcccc;
+}
+
 .team{
     min-width: 30px;
 }
