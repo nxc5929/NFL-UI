@@ -8,27 +8,27 @@ import { Team, Pick, Game } from 'src/services/game/pick-model';
 })
 export class PickSurvivorComponent implements OnInit {
 
-  teams: Team[] = [];
+  _teams: Team[];
   allGames: Game[] = [];
   survivorId: number
 
-  @Input()
-  set games(games: Pick[]) {
-    if (games) {
-      games.forEach(gameObj => {
-        this.allGames.push(gameObj.game);
-        this.teams.push(gameObj.game.homeTeam);
-        this.teams.push(gameObj.game.awayTeam);
-      });
-      this.teams.sort((a, b) => a.teamName.localeCompare(b.teamName));
-    }
+  @Input() 
+  set teams(teams: Team[]){
+    this._teams = teams.sort((a, b) => a.teamName.localeCompare(b.teamName));
   }
+
+  @Input() 
+  set picks(picks: Pick[]){
+    picks.forEach(pick => this.allGames.push(pick.game));
+  }
+
   @Input() 
   set survivor(pick: Pick){
     if(pick && pick.pick){
       this.survivorId = pick.pick.id;
     }
   }
+
   @Output() onChange: EventEmitter<Pick> = new EventEmitter();
 
   constructor() { }
@@ -37,11 +37,14 @@ export class PickSurvivorComponent implements OnInit {
 
   teamSelected(pickId: number){
     var survivor;
+    console.log("Finding PickId: " + pickId);
     this.allGames.forEach(game => {
       if(game.homeTeam.id == pickId){
         survivor = new Pick(0, game, game.homeTeam, -2);
+        console.log("Found Home");
       }else if(game.awayTeam.id == pickId){
         survivor = new Pick(0, game, game.awayTeam, -2);
+        console.log("Finding Away");
       }
     });
     this.onChange.emit(survivor);

@@ -1,6 +1,6 @@
 import { GenericResponse } from '../generic-response';
 
-export class PickModel extends GenericResponse<Player>{}
+export class PickModel extends GenericResponse<PlayerPicks>{}
 
 export class WeekModel extends GenericResponse<Week>{}
 
@@ -14,6 +14,17 @@ export class Week{
         public normalWeek: boolean,
         public weekStarted: boolean,
         public matrix: any
+    ){}
+}
+
+export class PlayerPicks{
+    constructor(
+        public id: number,
+        public picks: Pick[],
+        public survivor: Pick,
+        public survivorSelection: Team[],
+        public tiebreaker: number,
+        public account: Account
     ){}
 }
 

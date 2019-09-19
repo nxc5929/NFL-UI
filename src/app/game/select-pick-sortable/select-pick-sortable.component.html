@@ -2,7 +2,7 @@
     <mat-horizontal-stepper (selectionChange)="createTwoLists()" #stepper>
         <mat-step label="Select Winning Teams">
             <pick-card *ngFor="let pick of picks" sortable="true" [pick]="pick"></pick-card>
-            <pick-survivor [games]="picks" [survivor]="survivor" (onChange)="updateSurvivor($event)"></pick-survivor>
+            <pick-survivor *ngIf="survivorSelection" [teams]="survivorSelection" [picks]="picks" [survivor]="survivor" (onChange)="updateSurvivor($event)"></pick-survivor>
         </mat-step>
         <mat-step label="Order Games">
             <h3>Rank Games (1 = Most Confident)</h3>

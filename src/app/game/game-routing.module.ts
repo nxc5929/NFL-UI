@@ -13,8 +13,8 @@ const routes: Routes = [
       path: 'game',
       canActivate: [ AuthGuard ],
       children: [
-        { path: 'select-picks', component: SelectPicksComponent},
-        { path: 'matrix', component: MatrixComponent, canActivate: [WeekStarted]},
+        { path: 'select-picks', component: SelectPicksComponent, canActivate: []},
+        { path: 'matrix', component: MatrixComponent, canActivate: []},
         { path: 'standings', component: StandingsComponent},
         { path: 'survivors', component: SurvivorComponent, canActivate: [WeekStarted]}
       ]
