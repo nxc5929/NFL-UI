@@ -14,7 +14,7 @@ const routes: Routes = [
       canActivate: [ AuthGuard ],
       children: [
         { path: 'select-picks', component: SelectPicksComponent, canActivate: []},
-        { path: 'matrix', component: MatrixComponent, canActivate: []},
+        { path: 'matrix', component: MatrixComponent, canActivate: [WeekStarted]},
         { path: 'standings', component: StandingsComponent},
         { path: 'survivors', component: SurvivorComponent, canActivate: [WeekStarted]}
       ]

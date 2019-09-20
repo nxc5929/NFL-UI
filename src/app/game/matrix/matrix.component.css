@@ -65,3 +65,8 @@ mat-row{
 .topBorder{
     margin-top: 5px;
 }
+
+.loggedInPlayer{
+    border-right: solid black;
+    border-left: solid black;
+}

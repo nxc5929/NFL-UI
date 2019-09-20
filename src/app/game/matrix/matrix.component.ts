@@ -3,6 +3,7 @@ import { GameService } from 'src/services/game/game-service';
 import { Player, Game, Team, WeekModel, Pick } from 'src/services/game/pick-model';
 import { GenericResponse } from 'src/services/generic-response';
 import { WinnerService } from 'src/services/game/check-winner';
+import { AccountService } from 'src/services/accounts/account-service';
 
 @Component({
   selector: 'matrix',
@@ -11,14 +12,15 @@ import { WinnerService } from 'src/services/game/check-winner';
 })
 export class MatrixComponent implements OnInit {
 
-  constructor(private gameService: GameService, private winnerServie: WinnerService) { }
+  constructor(private gameService: GameService, private winnerServie: WinnerService, private accountService:AccountService) { }
 
   players: Map<String, Player>;
   playerKeys: string[];
+  loggedInPlayer: string;
   matrix: any;
   statusMatrix: Array<any> = [{"ref": "Tiebreaker"}, {"ref": "Survivor"}, {"ref": "# Correct"}];
-  normalWeekColumns: string[] = ['home', 'spread', 'away', 'score'];
-  confidenceWeekColumns: string[] = ['home', 'away', 'score'];;
+  normalWeekColumns: string[] = ['home', 'spread', 'away', 'score', 'loggedInPlayer'];
+  confidenceWeekColumns: string[] = ['home', 'away', 'score', 'loggedInPlayer'];;
   displayedColumns: string[];
 
   weeks: string[];
@@ -26,6 +28,7 @@ export class MatrixComponent implements OnInit {
   ngOnInit() {
     this.gameService.getMatrix().subscribe(res => this.handleWeek(res));
     this.gameService.getWeeks().subscribe(res => this.weeks = res.data);
+    this.loggedInPlayer = this.accountService.currentUserValue.fullName;
   }
 
   changeWeek(weekId: number){

@@ -4,4 +4,8 @@ export class SecureUser{
         public lastName?:string,
         public admin?:boolean
     ){}
+
+    get fullName(){
+        return this.firstName + " " + this.lastName;
+    }
 }
