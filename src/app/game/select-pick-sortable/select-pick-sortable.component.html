@@ -11,7 +11,7 @@
                     <div *ngFor="let pick of picksTop; index as index" cdkDrag>
                         <div class="placeholder" *cdkDragPlaceholder></div>
                         <div class="draggable">
-                            <span cdkDragHandle class="draggableItem">{{index+1}}</span>
+                            <span cdkDragHandle class="draggableItem">{{pickLength-index}}</span>
                             <sortable-game sortable="true" [team]="pick?.pick" class="draggableItem"></sortable-game>
                         </div>
                     </div>
@@ -20,7 +20,7 @@
                     <div *ngFor="let pick of picksBottom; index as index" cdkDrag>
                         <div class="placeholder" *cdkDragPlaceholder></div>
                         <div class="draggable">
-                            <span cdkDragHandle class="draggableItem">{{index+middle+1}}</span>
+                            <span cdkDragHandle class="draggableItem">{{pickLength-middle-index}}</span>
                             <sortable-game sortable="true" [team]="pick?.pick" class="draggableItem"></sortable-game>
                         </div>
                     </div>
