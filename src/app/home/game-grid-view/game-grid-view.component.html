@@ -4,14 +4,14 @@
         [style.background-color]="getWinner(pick.game, pick.pick)">
         <div class="stack">
             <img src="assets/logos/{{pick.game.homeTeam.teamAbv}}.png">
-            <span class="smallText {{selected(pick.game.homeTeam.id, pick.pick.id)}}">{{pick.game.homeTeam.teamAbv}}</span>
+            <span class="smallText {{selected(pick.game.homeTeam, pick.pick)}}">{{pick.game.homeTeam.teamAbv}}</span>
         </div>
         {{pick.game.homeScore}}
         -
         {{pick.game.awayScore}}
         <div class="stack">
             <img src="assets/logos/{{pick.game.awayTeam.teamAbv}}.png">
-            <span class="smallText {{selected(pick.game.awayTeam.id, pick.pick.id)}}">{{pick.game.awayTeam.teamAbv}}</span>
+            <span class="smallText {{selected(pick.game.awayTeam, pick.pick)}}">{{pick.game.awayTeam.teamAbv}}</span>
         </div>
     </mat-grid-tile>
 </mat-grid-list>

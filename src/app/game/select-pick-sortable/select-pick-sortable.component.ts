@@ -14,6 +14,7 @@ export class SelectPickSortableComponent implements OnInit {
   constructor(private gameService: GameService, private alertService: AlertService) { }
 
   picks: Pick[];
+  pickLength: number;
   middle: number;
   picksTop: Pick[];
   picksBottom: Pick[];
@@ -35,6 +36,7 @@ export class SelectPickSortableComponent implements OnInit {
         }
         return a.game.id - b.game.id;
       });
+      this.pickLength = this.picks.length;
       this.survivorSelection = res.data.survivorSelection;
       this.survivor = res.data.survivor;
     });

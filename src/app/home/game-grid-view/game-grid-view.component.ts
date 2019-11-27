@@ -28,9 +28,8 @@ export class GameGridViewComponent implements OnInit {
     }
   }
 
-  selected(teamId: number, pickId: number){
-    console.log(teamId + " : " + pickId)
-    if(teamId == pickId){
+  selected(team: Team, pick: Team){
+    if(pick != null && team.id == pick.id){
       return "pick";
     }
   }
