@@ -3,6 +3,11 @@
         <mat-step label="Select Winning Teams">
             <pick-card *ngFor="let pick of picks" sortable="true" [pick]="pick"></pick-card>
             <pick-survivor *ngIf="survivorSelection" [teams]="survivorSelection" [picks]="picks" [survivor]="survivor" (onChange)="updateSurvivor($event)"></pick-survivor>
+            <mat-card>
+                <mat-form-field class="example-full-width">
+                    <input matInput placeholder="Tiebreaker" (input)="updateTiebreaker($event.target.value)" [value]="tiebreaker">
+                </mat-form-field>
+            </mat-card>
         </mat-step>
         <mat-step label="Order Games">
             <h3>Rank Games (16 Points = Most Confident)</h3>

@@ -30,7 +30,6 @@ export class SelectPickStandardComponent implements OnInit {
       this.survivor = res.data.survivor;
       this.survivorSelection = res.data.survivorSelection;
       this.tiebreaker = res.data.tiebreaker;
-      console.log(res.data.tiebreaker);
     });
   }
 

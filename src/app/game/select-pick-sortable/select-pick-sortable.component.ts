@@ -18,6 +18,7 @@ export class SelectPickSortableComponent implements OnInit {
   middle: number;
   picksTop: Pick[];
   picksBottom: Pick[];
+  tiebreaker: number;
 
   survivorSelection: Team[];
   survivor: Pick;
@@ -39,6 +40,7 @@ export class SelectPickSortableComponent implements OnInit {
       this.pickLength = this.picks.length;
       this.survivorSelection = res.data.survivorSelection;
       this.survivor = res.data.survivor;
+      this.tiebreaker = res.data.tiebreaker;
     });
   }
 
@@ -78,13 +80,17 @@ export class SelectPickSortableComponent implements OnInit {
       this.loading = false;
     } else {
 
-      this.gameService.setPicks(new Player(this.playerId, this.picks, this.survivor, null, null))
+      this.gameService.setPicks(new Player(this.playerId, this.picks, this.survivor, this.tiebreaker, null))
         .subscribe(
           success => this.alertService.success("Successfully Submitted Picks"),
           error => this.alertService.error("Something went wrong"),
           () => this.loading = false
         );
     }
+  }
+
+  updateTiebreaker(tiebreaker: string){
+    this.tiebreaker = Number(tiebreaker);
   }
 
   updateIndex(): void{
