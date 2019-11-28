@@ -18,7 +18,7 @@ export class MatrixComponent implements OnInit {
   playerKeys: string[];
   loggedInPlayer: string;
   matrix: any;
-  statusMatrix: Array<any> = [{"ref": "Tiebreaker"}, {"ref": "Survivor"}, {"ref": "# Correct"}];
+  statusMatrix: Array<any>;
   normalWeekColumns: string[] = ['home', 'spread', 'away', 'score', 'loggedInPlayer'];
   confidenceWeekColumns: string[] = ['home', 'away', 'score', 'loggedInPlayer'];;
   displayedColumns: string[];
@@ -40,8 +40,10 @@ export class MatrixComponent implements OnInit {
       this.matrix = res.data.matrix;
       if(res.data.normalWeek){
         this.displayedColumns = this.normalWeekColumns;
+        this.statusMatrix = [{"ref": "Tiebreaker"}, {"ref": "Survivor"}, {"ref": "# Correct"}];
       }else{
         this.displayedColumns = this.confidenceWeekColumns;
+        this.statusMatrix = [{"ref": "Tiebreaker"}, {"ref": "Survivor"}, {"ref": "# Correct"}, {"ref": "Points"}];
       }
       this.matrix.sort((a, b) => a.ref.game.id - b.ref.game.id);
       this.playerKeys = Object.keys(this.matrix[0]);
@@ -53,26 +55,33 @@ export class MatrixComponent implements OnInit {
 
   getStatusMatrix(playerKey: string, refRow: string){
     var player: Player = this.players[playerKey];
-    if(refRow == this.statusMatrix[0]["ref"]){
+    if(refRow == "Tiebreaker"){
       return player.tiebreaker;
-    }else if(refRow == this.statusMatrix[1]["ref"]){
+    }else if(refRow == "Survivor"){
       if(player.survivor){
         return player.survivor.pick.teamAbv;
       }
       return "-";
-    }else if(refRow == this.statusMatrix[2]["ref"]){
+    }else if(refRow == "# Correct"){
       var correct = 0;
       this.matrix.forEach(row => {
         var pick: Pick = row[playerKey];
-        console.log();
         if(pick.game.final && this.winnerServie.winners(pick.game, pick.pick)){
-          console.log("Correct: " + correct);
-          correct = correct + 1;
+          correct += 1;
         }
       });
-      console.log(player);
       return correct;
-    }
+    }else if(refRow == "Points"){
+      var points = 0;
+      var length = this.matrix.length;
+      this.matrix.forEach(row => {
+        var pick: Pick = row[playerKey];
+        if(pick.game.final && this.winnerServie.winners(pick.game, pick.pick)){
+          points += (length - pick.index);
+        }
+      });
+      return points;
+    } 
   }
 
   sortNames(playerKeys: String[]){

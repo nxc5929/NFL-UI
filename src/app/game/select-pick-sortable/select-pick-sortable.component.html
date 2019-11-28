@@ -1,5 +1,5 @@
 <mat-card>
-    <mat-horizontal-stepper (selectionChange)="createTwoLists()" #stepper>
+    <mat-vertical-stepper linear (selectionChange)="createTwoLists()" #stepper>
         <mat-step label="Select Winning Teams">
             <pick-card *ngFor="let pick of picks" sortable="true" [pick]="pick"></pick-card>
             <pick-survivor *ngIf="survivorSelection" [teams]="survivorSelection" [picks]="picks" [survivor]="survivor" (onChange)="updateSurvivor($event)"></pick-survivor>
@@ -15,8 +15,8 @@
                 <div class="list" cdkDropList [cdkDropListData]="picksTop" (cdkDropListDropped)="drop($event)">
                     <div *ngFor="let pick of picksTop; index as index" cdkDrag>
                         <div class="placeholder" *cdkDragPlaceholder></div>
-                        <div class="draggable">
-                            <span cdkDragHandle class="draggableItem">{{pickLength-index}}</span>
+                        <div cdkDragHandle class="draggable">
+                            <span class="draggableItem">{{pickLength-index}}</span>
                             <sortable-game sortable="true" [team]="pick?.pick" class="draggableItem"></sortable-game>
                         </div>
                     </div>
@@ -24,8 +24,8 @@
                 <div class="list" cdkDropList [cdkDropListData]="picksBottom" (cdkDropListDropped)="drop($event)">
                     <div *ngFor="let pick of picksBottom; index as index" cdkDrag>
                         <div class="placeholder" *cdkDragPlaceholder></div>
-                        <div class="draggable">
-                            <span cdkDragHandle class="draggableItem">{{pickLength-middle-index}}</span>
+                        <div cdkDragHandle class="draggable">
+                            <span class="draggableItem">{{pickLength-middle-index}}</span>
                             <sortable-game sortable="true" [team]="pick?.pick" class="draggableItem"></sortable-game>
                         </div>
                     </div>
@@ -36,5 +36,5 @@
                     Submit
             </button>
         </mat-step>
-    </mat-horizontal-stepper>
+    </mat-vertical-stepper>
 </mat-card>

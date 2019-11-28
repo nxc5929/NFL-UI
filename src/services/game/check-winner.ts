@@ -11,7 +11,7 @@ export class WinnerService {
 
         var spread: number;
         var favoriteTeam: number;
-        if (game.spread) {
+        if (game.spread.favTeam) {
             spread = game.spread.points;
             favoriteTeam = game.spread.favTeam.id;
         } else {
