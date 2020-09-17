@@ -3,14 +3,33 @@
     [mode]="(isHandset$ | async) ? 'over' : 'side'" [opened]="(isHandset$ | async) === false">
     <mat-toolbar>Menu</mat-toolbar>
     <mat-nav-list>
-      <a mat-list-item href="/">Home</a>
-      <a mat-list-item href="/game/select-picks">Select Picks</a>
-      <a mat-list-item href="/game/matrix">Matrix</a>
-      <a mat-list-item href="/game/survivors">Survivor</a>
-      <a mat-list-item href="/game/standings">Standings</a>
+      <a mat-list-item href="/">
+        <mat-icon matListIcon>home</mat-icon>
+        Home
+      </a>
+      <a mat-list-item href="/game/select-picks">
+        <mat-icon matListIcon>fact_check</mat-icon>
+        Select Picks
+      </a>
+      <a mat-list-item href="/game/matrix">
+        <mat-icon matListIcon>grid_on</mat-icon>
+        Matrix
+      </a>
+      <a mat-list-item href="/game/survivors">
+        <mat-icon matListIcon>rule</mat-icon>
+        Survivor
+      </a>
+      <a mat-list-item href="/game/standings">
+        <mat-icon matListIcon>leaderboard</mat-icon>
+        Standings
+      </a>
       <ng-template [ngIf]="admin">
-          <a mat-list-item href="/admin/switch-account">Player Status</a>
-          <a mat-list-item href="/admin/update-spread">Update Spread</a>
+          <a mat-list-item href="/admin/switch-account">
+            Player Status
+          </a>
+          <a mat-list-item href="/admin/update-spread">
+            Update Spread
+          </a>
       </ng-template>
     </mat-nav-list>
   </mat-sidenav>
