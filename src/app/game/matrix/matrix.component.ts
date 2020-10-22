@@ -20,10 +20,10 @@ export class MatrixComponent implements OnInit {
   matrix: any;
   statusMatrix: Array<any>;
   normalWeekColumns: string[] = ['home', 'spread', 'away', 'score', 'loggedInPlayer'];
-  confidenceWeekColumns: string[] = ['home', 'away', 'score', 'loggedInPlayer'];;
+  confidenceWeekColumns: string[] = ['home', 'away', 'score', 'loggedInPlayer'];
   displayedColumns: string[];
-
   weeks: string[];
+  weekId: number;
 
   ngOnInit() {
     this.gameService.getMatrix().subscribe(res => this.handleWeek(res));
@@ -36,8 +36,8 @@ export class MatrixComponent implements OnInit {
   }
 
   handleWeek(res: WeekModel){
-    console.log(res)
       this.matrix = res.data.matrix;
+      this.weekId = res.data.id;
       if(res.data.normalWeek){
         this.displayedColumns = this.normalWeekColumns;
         this.statusMatrix = [{"ref": "Tiebreaker"}, {"ref": "Survivor"}, {"ref": "# Correct"}];
@@ -130,6 +130,17 @@ export class MatrixComponent implements OnInit {
       }
     }
     return;
+  }
+
+  downloadCSV(){
+    this.gameService.getMatrixCSV(this.weekId).subscribe((data) => {
+      var file = new Blob([data], {type: 'text/csv'});
+      var fileURL = URL.createObjectURL(file);
+      var link = document.createElement('a');
+      link.href = fileURL;
+      link.download = `${this.weekId}.csv`;
+      link.click();
+    });
   }
 
 }

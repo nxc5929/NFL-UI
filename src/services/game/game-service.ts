@@ -21,6 +21,17 @@ export class GameService {
     };
   }
 
+  getHttpOptionsNonJson() {
+    return {
+      headers: {
+        'Content-Type': 'application/json',
+        'Authorization': `${this.accountService.userToken}`
+      },
+      responseType: "text" as "json"
+    };
+  }
+  
+
   getPicks(): Observable<PickModel> {
     return this.http.get<PickModel>(`${environment.secureApiURL}/picks`, this.getHttpOptions());
   }
@@ -34,7 +45,11 @@ export class GameService {
   }
 
   getPastMatrix(weekId: number): Observable<WeekModel>{
-    return this.http.get<WeekModel>(`${environment.secureApiURL}/picks/${weekId}/matrix`, this.getHttpOptions());
+    return this.http.get<WeekModel>(`${environment.secureApiURL}/picks/matrix/${weekId}`, this.getHttpOptions());
+  }
+  
+  getMatrixCSV(weekId: number): Observable<string>{
+    return this.http.get<string>(`${environment.secureApiURL}/picks/matrix/csv/${weekId}`, this.getHttpOptionsNonJson());
   }
 
   getWeeks(): Observable<GenericResponse<string[]>>{

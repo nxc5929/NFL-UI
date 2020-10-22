@@ -1,17 +1,27 @@
-<mat-grid-list cols="{{columnNum}}" rowHeight="2:1" gutterSize="5px" (window:resize)="onResize($event)">
+<mat-grid-list cols="{{columnNum}}" rowHeight="2:1" gutterSize="30px" (window:resize)="resize()">
     <mat-grid-tile 
         *ngFor="let pick of picks" 
         [style.background-color]="getWinner(pick.game, pick.pick)">
-        <div class="stack">
-            <img src="assets/logos/{{pick.game.homeTeam.teamAbv}}.png">
-            <span class="smallText {{selected(pick.game.homeTeam, pick.pick)}}">{{pick.game.homeTeam.teamAbv}}</span>
-        </div>
-        {{pick.game.homeScore}}
-        -
-        {{pick.game.awayScore}}
-        <div class="stack">
-            <img src="assets/logos/{{pick.game.awayTeam.teamAbv}}.png">
-            <span class="smallText {{selected(pick.game.awayTeam, pick.pick)}}">{{pick.game.awayTeam.teamAbv}}</span>
+        <div class="game">
+            <div class="team">
+                <img src="assets/logos/{{pick.game.homeTeam.teamAbv}}.png">
+                <span class="smallText {{selected(pick.game.homeTeam, pick.pick)}}">{{pick.game.homeTeam.teamAbv}}</span>
+            </div>
+            <div class="gameInfo">
+                <div class="score">
+                    <span>{{pick.game.homeScore}}-{{pick.game.awayScore}}</span>
+                </div>
+                <div class="time smallText">
+                    14:01
+                </div>
+                <div class="qrt superSmallText">
+                    4th
+                </div>
+            </div>
+            <div class="team">
+                <img src="assets/logos/{{pick.game.awayTeam.teamAbv}}.png">
+                <span class="smallText {{selected(pick.game.awayTeam, pick.pick)}}">{{pick.game.awayTeam.teamAbv}}</span>
+            </div>
         </div>
     </mat-grid-tile>
 </mat-grid-list>

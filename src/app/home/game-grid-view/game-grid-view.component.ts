@@ -15,11 +15,12 @@ export class GameGridViewComponent implements OnInit {
   constructor(private winnerServie: WinnerService){};
 
   ngOnInit() {
-    this.columnNum = Math.floor(window.innerWidth/180);
+    this.resize();
   }
 
-  onResize(event) {
-    this.columnNum = Math.floor(event.target.innerWidth/180);
+  resize() {
+    var column = Math.floor(window.innerWidth/240);
+    this.columnNum = Math.max(column, 2);
   }
 
   getWinner(game: Game, refTeam: Team){

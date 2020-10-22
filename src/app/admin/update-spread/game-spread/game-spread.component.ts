@@ -32,15 +32,12 @@ export class GameSpreadComponent implements OnInit {
   }
 
   updateFavorite(teamId: number) {
-    console.log("TEAM ID: " + teamId);
     if (teamId) {
       this.game.spread.favTeam = (teamId == this.homeTeam.id) ? this.homeTeam : this.awayTeam;
-      console.log("Spread: " + this.game.spread.favTeam.teamName);
     }
   }
 
   updatePoints(points: number) {
-    console.log("Points: " + points);
     this.game.spread.points = points;
   }
 

@@ -31,14 +31,10 @@ export class MainNavComponent {
       this.user = user.firstName + " " + user.lastName;
       this.adminUser = adminUser.firstName + " " + adminUser.lastName;
       this.admin = adminUser.admin;
-      console.log("Admin: " + this.admin)
     }
   }
 
   logout(){
     this.accountService.logout();
   }
-
-
-
 }

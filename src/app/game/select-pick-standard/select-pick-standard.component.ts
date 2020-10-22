@@ -68,9 +68,9 @@ export class SelectPickStandardComponent implements OnInit {
     if(this.tiebreaker <= 0){
       valid = "Enter valid tiebreaker";
     }
-    if(this.survivorSelection != null && this.survivor == null){
-      valid = "Select Survivor Pick";
-    }
+    // if(this.survivorSelection != null && this.survivor == null){
+    //   valid = "Select Survivor Pick";
+    // }
     return valid;
   }
 

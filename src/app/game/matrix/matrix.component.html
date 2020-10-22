@@ -1,4 +1,10 @@
 <mat-card>
+    <div *ngIf="matrix == null">
+        This weeks matrix it not ready yet!<br> 
+        Picks are still being made.<br><br>
+        Come back after kickoff to view!<br>
+        Or select past Week to view below.
+    </div>
     <mat-table [dataSource]="matrix">
         <ng-container matColumnDef="home">
             <mat-header-cell *matHeaderCellDef class="team"><span class="header">Home</span></mat-header-cell>
@@ -90,4 +96,5 @@
             <mat-option *ngFor="let week of weeks; index as i" [value]="week">Week {{i+1}}</mat-option>
         </mat-select>
     </mat-form-field>
+    <button (click)="downloadCSV()" mat-raised-button>Download Matrix</button>
 </mat-card>

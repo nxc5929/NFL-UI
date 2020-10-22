@@ -70,3 +70,13 @@ mat-row{
     border-right: solid black;
     border-left: solid black;
 }
+
+button{
+    float: right;
+}
+
+@media only screen and (max-width: 1025px) {
+    button{
+        display: none;
+    }
+}
