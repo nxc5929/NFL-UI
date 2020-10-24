@@ -34,7 +34,7 @@ img{
     flex-direction: column;
     align-items: center;
     align-self: flex-end;
-    line-height: 1.1;
+    line-height: 1.2;
 }
 
 .score{
@@ -42,7 +42,7 @@ img{
 }
 
 .qrt {
-    min-height: 8px;
+    min-height: 10px;
 }
 
 .smallText{
