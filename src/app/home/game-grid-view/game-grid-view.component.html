@@ -9,13 +9,15 @@
             </div>
             <div class="gameInfo">
                 <div class="score">
-                    <span>{{pick.game.homeScore}}-{{pick.game.awayScore}}</span>
+                    <span>{{pick.game.homeScore}} - {{pick.game.awayScore}}</span>
                 </div>
-                <div class="time smallText">
-                    14:01
-                </div>
-                <div class="qrt superSmallText">
-                    4th
+                <div class=gameDetails>
+                    <div class="time smallText">
+                        {{pick.game.clock}}
+                    </div>
+                    <div class="qrt superSmallText">
+                        {{pick.game.qrt}}
+                    </div>
                 </div>
             </div>
             <div class="team">

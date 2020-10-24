@@ -65,6 +65,8 @@ export class Game{
         public homeScore: number,
         public awayTeam: Team,
         public awayScore: number,
+        public clock: string,
+        public qrt: string
     ){}
 }
 

@@ -29,6 +29,7 @@ export class MatrixComponent implements OnInit {
     this.gameService.getMatrix().subscribe(res => this.handleWeek(res));
     this.gameService.getWeeks().subscribe(res => this.weeks = res.data);
     this.loggedInPlayer = this.accountService.currentUserValue.fullName;
+    console.log(this.loggedInPlayer);
   }
 
   changeWeek(weekId: number){
