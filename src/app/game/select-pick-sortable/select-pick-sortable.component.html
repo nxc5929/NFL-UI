@@ -1,6 +1,6 @@
 <mat-card>
     <mat-horizontal-stepper linear (selectionChange)="createTwoLists()" #stepper>
-        <mat-step label="Select Winning Teams">
+        <mat-step label="Select">
             <pick-card *ngFor="let pick of picks" [pick]="pick"></pick-card>
             <pick-survivor *ngIf="survivorSelection" [teams]="survivorSelection" [picks]="picks" [survivor]="survivor" (onChange)="updateSurvivor($event)"></pick-survivor>
             <mat-card>
@@ -9,7 +9,7 @@
                 </mat-form-field>
             </mat-card>
         </mat-step>
-        <mat-step label="Order Games">
+        <mat-step label="Order">
             <h3>Rank Games (16 Points = Most Confident)</h3>
             <div class="listGroup" cdkDropListGroup>
                 <div class="list" cdkDropList [cdkDropListData]="picksTop" (cdkDropListDropped)="drop($event)">
