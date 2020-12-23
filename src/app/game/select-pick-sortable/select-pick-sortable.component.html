@@ -1,7 +1,7 @@
 <mat-card>
     <mat-vertical-stepper linear (selectionChange)="createTwoLists()" #stepper>
         <mat-step label="Select Winning Teams">
-            <pick-card *ngFor="let pick of picks" sortable="true" [pick]="pick"></pick-card>
+            <pick-card *ngFor="let pick of picks" [pick]="pick"></pick-card>
             <pick-survivor *ngIf="survivorSelection" [teams]="survivorSelection" [picks]="picks" [survivor]="survivor" (onChange)="updateSurvivor($event)"></pick-survivor>
             <mat-card>
                 <mat-form-field class="example-full-width">
