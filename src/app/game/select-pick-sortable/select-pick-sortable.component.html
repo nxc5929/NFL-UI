@@ -1,5 +1,5 @@
 <mat-card>
-    <mat-vertical-stepper linear (selectionChange)="createTwoLists()" #stepper>
+    <mat-horizontal-stepper linear (selectionChange)="createTwoLists()" #stepper>
         <mat-step label="Select Winning Teams">
             <pick-card *ngFor="let pick of picks" [pick]="pick"></pick-card>
             <pick-survivor *ngIf="survivorSelection" [teams]="survivorSelection" [picks]="picks" [survivor]="survivor" (onChange)="updateSurvivor($event)"></pick-survivor>
@@ -36,5 +36,5 @@
                     Submit
             </button>
         </mat-step>
-    </mat-vertical-stepper>
+    </mat-horizontal-stepper>
 </mat-card>
