@@ -1,49 +1,15 @@
 <mat-card>
-    <div class="game">
-        <div class="flexInline gameElement">
-            <div class="center">
-                <img src="assets/logos/{{awayTeam.teamAbv}}.png">
-                <span>{{awayTeam.teamName}}</span>
-            </div>
-        </div>
-        <span class="smallFont">vs</span>
-        <div class="flexInline gameElement">
-            <div class="center">
-                <img src="assets/logos/{{homeTeam.teamAbv}}.png">
-                <span>{{homeTeam.teamName}}</span>
-            </div>
+    <div class="gameElement {{leftTeamCss}}" (click)="updatePick(leftTeam)">
+        <div class="center">
+            <img src="assets/logos/{{leftTeam.teamAbv}}.png">
+            <span>{{leftTeam.teamName}}</span>
         </div>
     </div>
-    <ng-template [ngIf]="!sortable">
-        <div class="favorite">
-            <span class="spread">Spread: </span>
-            <span *ngIf="spread; else elseBlock">{{spread.favTeam.teamAbv}} (-{{spread.points}})</span>
-            <ng-template #elseBlock><span>TBD</span></ng-template>
+    <span class="spread">{{spread.points}}</span>
+    <div class="gameElement {{rightTeamCss}}" (click)="updatePick(rightTeam)">
+        <div class="center">
+            <img src="assets/logos/{{rightTeam.teamAbv}}.png">
+            <span>{{rightTeam.teamName}}</span>
         </div>
-    </ng-template>
-    <mat-radio-group aria-label="Select an option" [value]="picked" (change)="updatePick($event)">
-        <mat-radio-button [value]="homeTeam.id" style="display: inline-flex">
-            <div class="flexInline">
-                <img class="smallScreen teamElement" src="assets/logos/{{homeTeam.teamAbv}}.png">
-                <div class="teamElement">
-                    <b class="smallScreen">@</b>{{homeTeam.teamName}}
-                    <span class="subtitle">
-                        {{homeTeam.wins}}-{{homeTeam.losses}}-{{homeTeam.ties}}
-                    </span>
-                </div>
-            </div>
-        </mat-radio-button>
-
-        <mat-radio-button [value]="awayTeam.id" style="display: inline-flex">
-            <div class="flexInline">
-                <img class="smallScreen teamElement" src="assets/logos/{{awayTeam.teamAbv}}.png">
-                <div class="teamElement">
-                    {{awayTeam.teamName}}
-                    <span class="subtitle">
-                        {{awayTeam.wins}}-{{awayTeam.losses}}-{{awayTeam.ties}}
-                    </span>
-                </div>
-            </div>
-        </mat-radio-button>
-    </mat-radio-group>
+    </div>
 </mat-card>

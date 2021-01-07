@@ -14,15 +14,23 @@ export class PickCardComponent implements OnInit {
   @Input() pick: Pick;
   @Input() sortable: boolean = false;
 
-  homeTeam: Team;
-  awayTeam: Team;
+  leftTeam: Team;//Home or Fav
+  leftTeamCss: string;
+  rightTeam: Team;
+  rightTeamCss: String
   spread: Spread;
   picked: number;
 
   ngOnInit() {
-    this.homeTeam = this.pick.game.homeTeam;
-    this.awayTeam = this.pick.game.awayTeam;
     this.spread = this.pick.game.spread;
+    if(this.spread){
+      this.leftTeam = this.spread.favTeam;
+      this.rightTeam = this.leftTeam.id == this.pick.game.homeTeam.id ? this.pick.game.awayTeam : this.pick.game.homeTeam;
+    }else{
+      this.leftTeam = this.pick.game.homeTeam;
+      this.rightTeam = this.pick.game.awayTeam;
+    }
+
     if(this.pick.pick){
       this.picked = this.pick.pick.id;
     }else{
@@ -30,9 +38,15 @@ export class PickCardComponent implements OnInit {
     }
   }
 
-  updatePick(event:MatRadioChange){
-    this.pick.pick = (event.value == this.homeTeam.id) ? this.homeTeam : this.awayTeam;
-    console.log(this.pick);
+  updatePick(pick: Team){
+    this.pick.pick = pick;
+    if(pick == this.leftTeam){
+      this.leftTeamCss = "picked";
+      this.rightTeamCss = "";
+    }else{
+      this.leftTeamCss = "";
+      this.rightTeamCss = "picked";
+    }
   }
 
 }

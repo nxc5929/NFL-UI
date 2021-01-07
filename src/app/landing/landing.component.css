@@ -1,0 +1,16 @@
+mat-toolbar {
+    display: flex;
+    text-align: center;
+}
+
+.title {
+    flex: 2;
+}
+
+button {
+    flex: 1;
+}
+
+mat-grid-tile{
+    border: solid black
+}

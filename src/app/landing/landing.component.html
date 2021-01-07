@@ -1,0 +1,25 @@
+<mat-toolbar>
+    <span class="title">Gameday Picks</span>
+    <button mat-button [matMenuTriggerFor]="menu">Pool Types</button>
+    <mat-menu #menu="matMenu">
+        <button mat-menu-item (click)="test()">Pick Em' Pool</button>
+        <button mat-menu-item>Spread Pool</button>
+        <button mat-menu-item>Confidence Pool</button>
+        <button mat-menu-item>Confidence w/ Spread Pool</button>
+        <button mat-menu-item>Survivor Pool</button>
+    </mat-menu>
+    <button mat-button>Pricing</button>
+    <button mat-button>Sign Up</button>
+    <button mat-icon-button color="primary">
+        <mat-icon>home</mat-icon>
+        Login
+    </button>
+</mat-toolbar>
+<mat-grid-list cols="8" rowHeight="100px">
+  <mat-grid-tile [colspan] = "4" [rowspan] = "4"><img src="assets/screenshot1.PNG"></mat-grid-tile>
+  <mat-grid-tile [colspan] = "4" >Content 2</mat-grid-tile>
+  <mat-grid-tile [colspan] = "5" >Content 3</mat-grid-tile>
+  <mat-grid-tile [colspan] = "3" >Content 4</mat-grid-tile>
+  <mat-grid-tile [colspan] = "8" >Content 5</mat-grid-tile>
+</mat-grid-list>
+
