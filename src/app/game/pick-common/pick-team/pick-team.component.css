@@ -15,7 +15,7 @@ img{
 }
 
 .details{
-    flex: 5;
+    flex: 3;
     display: grid;
     line-height: 100%;
     margin: auto;

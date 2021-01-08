@@ -1,4 +1,5 @@
 <div class="main">
+    <pick-header></pick-header>
     <pick-card *ngFor="let pick of picks" [pick]="pick"></pick-card>
     <pick-survivor *ngIf="survivorSelection" [teams]="survivorSelection" [picks]="picks" [survivor]="survivor" (onChange)="updateSurvivor($event)"></pick-survivor>
     <mat-card>
