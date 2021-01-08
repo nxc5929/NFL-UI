@@ -19,3 +19,9 @@ mat-card {
 .picked{
     border: solid  grey;
 }
+
+@media only screen and (min-width: 600px) {
+    .spread {
+      font-size: 20px;
+    }
+  }
