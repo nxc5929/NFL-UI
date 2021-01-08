@@ -1,4 +1,4 @@
-<mat-card class="main">
+<div class="main">
     <pick-card *ngFor="let pick of picks" [pick]="pick"></pick-card>
     <pick-survivor *ngIf="survivorSelection" [teams]="survivorSelection" [picks]="picks" [survivor]="survivor" (onChange)="updateSurvivor($event)"></pick-survivor>
     <mat-card>
@@ -10,4 +10,4 @@
             Submit
         </button>
     </mat-card>
-</mat-card>
+</div>
