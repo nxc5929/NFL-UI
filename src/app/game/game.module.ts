@@ -14,6 +14,7 @@ import { StandingsComponent } from './standings/standings.component';
 import { SurvivorComponent } from './survivor/survivor.component';
 import { SelectPicksComponent } from './select-picks/select-picks.component';
 import { SelectPickStandardComponent } from './select-pick-standard/select-pick-standard.component';
+import { PickTeamComponent } from './pick-common/pick-team/pick-team.component';
 
 @NgModule({
   declarations: [
@@ -26,7 +27,8 @@ import { SelectPickStandardComponent } from './select-pick-standard/select-pick-
     PickSurvivorComponent,
     StandingsComponent,
     SurvivorComponent,
-    SelectPicksComponent
+    SelectPicksComponent,
+    PickTeamComponent,
   ],
   imports: [
     GameRoutingModule,

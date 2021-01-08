@@ -32,7 +32,7 @@ export class PickCardComponent implements OnInit {
     }
 
     if(this.pick.pick){
-      this.picked = this.pick.pick.id;
+      this.updatePick(this.pick.pick);
     }else{
       this.picked = 0;
     }
