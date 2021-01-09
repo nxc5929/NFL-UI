@@ -2,11 +2,7 @@ mat-card {
     display: grid;
     padding: 5px;
     border-top: solid lightgray
-}
-
-pick-team{
-    border: solid silver;
-    border-width: 1px;
+    
 }
 
 spread-indicator{
@@ -14,6 +10,7 @@ spread-indicator{
 }
 
 .teams {
+    padding-top: 15px;
     display: flex;
     width: 100%;
 }
@@ -21,8 +18,10 @@ spread-indicator{
 .gameElement {
     flex: 1;
     margin: auto;
-    border: solid white;
+    border: solid black;
+    border-width: 1px;
     border-radius: 5px;
+    margin: 10px;
 }
 
 .spread {
