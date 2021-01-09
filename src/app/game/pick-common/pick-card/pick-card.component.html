@@ -1,5 +1,7 @@
 <mat-card>
-    <pick-team class="gameElement {{leftTeamCss}}" (click)="updatePick(leftTeam)" [team]=leftTeam></pick-team>
-    <span class="spread">-{{spread.points}}</span>
-    <pick-team class="gameElement {{rightTeamCss}}" (click)="updatePick(rightTeam)" [team]=rightTeam></pick-team>
+    <div class="teams">
+        <pick-team class="gameElement {{leftTeamCss}}" (click)="updatePick(leftTeam)" [team]=leftTeam></pick-team>
+        <pick-team class="gameElement {{rightTeamCss}}" (click)="updatePick(rightTeam)" [team]=rightTeam></pick-team>
+    </div>
+    <spread-indicator [leftTeam]=leftTeam [rightTeam]=rightTeam [spread]=spread></spread-indicator>
 </mat-card>

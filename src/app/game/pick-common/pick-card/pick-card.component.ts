@@ -23,13 +23,8 @@ export class PickCardComponent implements OnInit {
 
   ngOnInit() {
     this.spread = this.pick.game.spread;
-    if(this.spread){
-      this.leftTeam = this.spread.favTeam;
-      this.rightTeam = this.leftTeam.id == this.pick.game.homeTeam.id ? this.pick.game.awayTeam : this.pick.game.homeTeam;
-    }else{
-      this.leftTeam = this.pick.game.homeTeam;
-      this.rightTeam = this.pick.game.awayTeam;
-    }
+    this.leftTeam = this.pick.game.homeTeam;
+    this.rightTeam = this.pick.game.awayTeam;
 
     if(this.pick.pick){
       this.updatePick(this.pick.pick);
@@ -40,7 +35,7 @@ export class PickCardComponent implements OnInit {
 
   updatePick(pick: Team){
     this.pick.pick = pick;
-    if(pick == this.leftTeam){
+    if(pick.id == this.leftTeam.id){
       this.leftTeamCss = "picked";
       this.rightTeamCss = "";
     }else{

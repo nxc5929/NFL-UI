@@ -1,10 +1,25 @@
 mat-card {
-    display: flex;
+    display: grid;
     padding: 5px;
+    border-top: solid lightgray
+}
+
+pick-team{
+    border: solid silver;
+    border-width: 1px;
+}
+
+spread-indicator{
+    padding-top: 18px;
+}
+
+.teams {
+    display: flex;
+    width: 100%;
 }
 
 .gameElement {
-    flex: 3;
+    flex: 1;
     margin: auto;
     border: solid white;
     border-radius: 5px;
@@ -18,10 +33,5 @@ mat-card {
 
 .picked{
     border: solid  grey;
+    background-color: #e0ecff
 }
-
-@media only screen and (min-width: 600px) {
-    .spread {
-      font-size: 20px;
-    }
-  }
