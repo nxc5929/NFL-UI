@@ -24,12 +24,6 @@ spread-indicator{
     margin: 10px;
 }
 
-.spread {
-    flex: 1;
-    margin: auto;
-    text-align: center
-}
-
 .picked{
     border: solid  grey;
     background-color: #e0ecff
