@@ -6,8 +6,26 @@
     display: none;
 }
 
+::ng-deep .mat-slider.mat-slider-horizontal .mat-slider-wrapper .mat-slider-track-wrapper{
+    transform: scale(1, 2);
+}
+
+::ng-deep .small.mat-accent .mat-slider-thumb-label, ::ng-deep .small.mat-accent .mat-slider-track-fill {
+    background-color: #2ab7ca;
+} 
+::ng-deep .mid.mat-accent .mat-slider-thumb-label, ::ng-deep .mid.mat-accent .mat-slider-track-fill {
+    background-color: #fed766;
+}
+::ng-deep .mid.mat-accent .mat-slider-thumb-label-text {
+    color: black;
+}
+::ng-deep .long.mat-accent .mat-slider-thumb-label, ::ng-deep .long.mat-accent .mat-slider-track-fill {
+    background-color: #fe4a49 ;
+}     
+
 mat-slider{
     pointer-events: none;
+    height: 30px;
 }
 
 .left {

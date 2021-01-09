@@ -14,6 +14,8 @@ export class SpreadIndicatorComponent implements OnInit {
   @Input() rightTeam: Team;
   @Input() spread: Spread;
 
+  max: number = 20;
+
   ngOnInit() {
   }
 
@@ -27,6 +29,17 @@ export class SpreadIndicatorComponent implements OnInit {
 
   get rightValue() {
     return this.rightTeam.id == this.spread.favTeam.id ? this.spread.points : 0;
+  }
+
+  get cssFromSpread(){
+    let points = this.spread.points;
+    if(points < this.max * 0.25){
+      return 'small';
+    }else if(points < this.max * 0.65){
+      return 'mid';
+    }else{
+      return 'long';
+    }
   }
 
 }

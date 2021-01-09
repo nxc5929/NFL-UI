@@ -1,7 +1,7 @@
 <mat-slider
     thumbLabel
     class="left"
-    [ngClass]="[leftSpread ? 'cdk-focused' : 'notFavorite']"
+    [ngClass]="[leftSpread ? 'cdk-focused' : 'notFavorite', cssFromSpread]"
     invert="true"
     value={{leftValue}}
     step="0.5"
@@ -11,7 +11,7 @@
 <mat-slider
     thumbLabel
     class="right"
-    [ngClass]="[leftSpread ? 'notFavorite' : 'cdk-focused']"
+    [ngClass]="[leftSpread ? 'notFavorite' : 'cdk-focused', cssFromSpread]"
     value={{rightValue}}
     step="0.5"
     min="0"

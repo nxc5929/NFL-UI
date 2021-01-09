@@ -6,6 +6,8 @@ mat-card {
 .gameElement {
     flex: 3;
     margin: auto;
+    margin-left: 10px;
+    margin-right: 10px;
 }
 
 .gameElement {
