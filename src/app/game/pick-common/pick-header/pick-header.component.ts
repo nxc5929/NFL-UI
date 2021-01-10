@@ -9,6 +9,8 @@ export class PickHeaderComponent implements OnInit {
 
   constructor() { }
 
+  repeat: boolean = true;
+
   ngOnInit() {
   }
 

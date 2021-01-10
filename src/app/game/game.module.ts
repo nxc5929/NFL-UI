@@ -2,7 +2,7 @@ import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 import { ServiceModule } from 'src/services/service.module';
 import { GameRoutingModule } from './game-routing.module';
-import { MatCardModule, MatButtonModule, MatRadioModule, MatInputModule, MatFormFieldModule, MatGridListModule, MatTableModule, MatSelectModule, MatOptionModule, MatStepperModule, MatIconModule, MatSliderModule } from '@angular/material';
+import { MatCardModule, MatButtonModule, MatRadioModule, MatInputModule, MatFormFieldModule, MatGridListModule, MatTableModule, MatSelectModule, MatOptionModule, MatStepperModule, MatIconModule, MatSliderModule, MatDividerModule } from '@angular/material';
 import { PickCardComponent } from './pick-common/pick-card/pick-card.component';
 import { MatrixComponent } from './matrix/matrix.component';
 import { PipeModule } from 'src/pipes/pipe.module';
@@ -41,6 +41,7 @@ import { SpreadIndicatorComponent } from './pick-common/spread-indicator/spread-
     PipeModule,
     MatCardModule,
     MatButtonModule,
+    MatDividerModule,
     MatSliderModule,
     MatTableModule,
     MatRadioModule,

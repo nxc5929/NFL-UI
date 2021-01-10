@@ -1,6 +1,8 @@
 <div class="main">
     <pick-header></pick-header>
-    <pick-card *ngFor="let pick of picks" [pick]="pick"></pick-card>
+    <div class="pickContainer">
+        <pick-card *ngFor="let pick of picks" [pick]="pick"></pick-card>
+    </div>
     <pick-survivor *ngIf="survivorSelection" [teams]="survivorSelection" [picks]="picks" [survivor]="survivor" (onChange)="updateSurvivor($event)"></pick-survivor>
     <mat-card>
         <mat-form-field class="example-full-width">

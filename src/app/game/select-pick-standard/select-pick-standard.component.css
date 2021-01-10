@@ -7,8 +7,17 @@
     padding: 5px;
 }
 
+.pickContainer{
+  display: grid;
+  grid-template-columns: repeat(1, 1fr);
+}
+
 @media only screen and (min-width: 600px) {
   .main {
     margin: 12px;
+  }
+
+  .pickContainer{
+    grid-template-columns: repeat(2, 1fr);
   }
 }
