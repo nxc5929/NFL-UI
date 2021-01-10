@@ -87,4 +87,8 @@ export class SelectPickSortableComponent implements OnInit {
     return valid;
   }
 
+  drop(event: CdkDragDrop<string[]>) {
+    moveItemInArray(event.container.data, event.previousIndex, event.currentIndex);
+  }
+
 }

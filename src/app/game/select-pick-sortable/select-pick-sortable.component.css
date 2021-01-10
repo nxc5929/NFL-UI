@@ -7,7 +7,7 @@
   }
 
 ::ng-deep mat-horizontal-stepper .mat-horizontal-content-container{
-  padding: 10px;
+  padding: 0px;
 }
 
 .draggable{
@@ -30,7 +30,20 @@
   flex: 1;
 }
 
-@media only screen and (min-width: 800px) {
+.sortablePick {
+  display: flex;
+}
+
+.handle {
+  margin: auto;
+  display: flex;
+}
+
+.gameDetails{
+  flex: 1;
+}
+
+@media only screen and (min-width: 850px) {
 
   .pickContainer{
     grid-template-columns: repeat(2, 1fr);

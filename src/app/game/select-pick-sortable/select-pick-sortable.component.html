@@ -1,5 +1,5 @@
 <div>
-    <mat-horizontal-stepper linear (selectionChange)="createTwoLists()" #stepper>
+    <mat-horizontal-stepper linear #stepper>
         <mat-step label="Select">
             <pick-header></pick-header>
             <div class="pickContainer">
@@ -16,9 +16,12 @@
             <span>Most Confident</span>
             <div class="listGroup" cdkDropListGroup>
                 <div class="list" cdkDropList [cdkDropListData]="picks" (cdkDropListDropped)="drop($event)">
-                    <div *ngFor="let pick of picks; index as index" cdkDrag>
+                    <div class="sortablePick" *ngFor="let pick of picks; index as index" cdkDrag>
                         <div class="placeholder" *cdkDragPlaceholder></div>
-                        <div cdkDragHandle>
+                        <div class="handle"cdkDragHandle>
+                            <mat-icon>unfold_more</mat-icon>
+                        </div>
+                        <div class="gameDetails">
                             <sortable-game sortable="true" [pick]="pick"></sortable-game>
                         </div>
                     </div>

@@ -1,9 +1,8 @@
-mat-card {
+.pickContainer {
     display: grid;
     padding-bottom: 10px;
     padding-top: 10px;
     border-top: solid lightgray
-    
 }
 
 spread-indicator{

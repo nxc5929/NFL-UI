@@ -73,5 +73,4 @@ export class SelectPickStandardComponent implements OnInit {
     // }
     return valid;
   }
-
 }

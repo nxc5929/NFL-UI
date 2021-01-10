@@ -1,7 +1,7 @@
-<mat-card>
+<div class="pickContainer">
     <spread-indicator *ngIf=spread [leftTeam]=leftTeam [rightTeam]=rightTeam [spread]=spread></spread-indicator>
     <div class="teams">
         <pick-team class="gameElement {{leftTeamCss}}" (click)="updatePick(leftTeam)" [team]=leftTeam></pick-team>
         <pick-team class="gameElement {{rightTeamCss}}" (click)="updatePick(rightTeam)" [team]=rightTeam></pick-team>
     </div>
-</mat-card>
+</div>

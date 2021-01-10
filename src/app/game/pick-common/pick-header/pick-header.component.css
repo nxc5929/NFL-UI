@@ -1,8 +1,3 @@
-mat-card {
-    display: flex;
-    padding: 5px;
-}
-
 .gameElement {
     flex: 3;
     margin: auto;
@@ -16,15 +11,23 @@ mat-card {
 
 .headerContainer{
     display: grid;
-    grid-template-columns: repeat(2, 1fr);
-  }
+    grid-template-columns: repeat(1, 1fr);
+}
 
-  @media only screen and (max-width: 800px) {
+.header {
+  display: flex;
+}
+
+.secondHeader{
+  display: none;
+}
+
+  @media only screen and (min-width: 850px) {
     .secondHeader{
-        display: none;
+        display: flex;
     }
   
     .headerContainer{
-      grid-template-columns: repeat(1, 1fr);
+      grid-template-columns: repeat(2, 1fr);
     }
   }
