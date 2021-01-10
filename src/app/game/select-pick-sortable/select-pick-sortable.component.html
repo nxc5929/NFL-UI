@@ -1,7 +1,10 @@
-<mat-card>
+<div>
     <mat-horizontal-stepper linear (selectionChange)="createTwoLists()" #stepper>
         <mat-step label="Select">
-            <pick-card *ngFor="let pick of picks" [pick]="pick"></pick-card>
+            <pick-header></pick-header>
+            <div class="pickContainer">
+                <pick-card *ngFor="let pick of picks" [pick]="pick"></pick-card>
+            </div>
             <pick-survivor *ngIf="survivorSelection" [teams]="survivorSelection" [picks]="picks" [survivor]="survivor" (onChange)="updateSurvivor($event)"></pick-survivor>
             <mat-card>
                 <mat-form-field class="example-full-width">
@@ -10,31 +13,22 @@
             </mat-card>
         </mat-step>
         <mat-step label="Order">
-            <h3>Rank Games (16 Points = Most Confident)</h3>
+            <span>Most Confident</span>
             <div class="listGroup" cdkDropListGroup>
-                <div class="list" cdkDropList [cdkDropListData]="picksTop" (cdkDropListDropped)="drop($event)">
-                    <div *ngFor="let pick of picksTop; index as index" cdkDrag>
+                <div class="list" cdkDropList [cdkDropListData]="picks" (cdkDropListDropped)="drop($event)">
+                    <div *ngFor="let pick of picks; index as index" cdkDrag>
                         <div class="placeholder" *cdkDragPlaceholder></div>
-                        <div cdkDragHandle class="draggable">
-                            <span class="draggableItem">{{pickLength-index}}</span>
-                            <sortable-game sortable="true" [team]="pick?.pick" class="draggableItem"></sortable-game>
-                        </div>
-                    </div>
-                </div>
-                <div class="list" cdkDropList [cdkDropListData]="picksBottom" (cdkDropListDropped)="drop($event)">
-                    <div *ngFor="let pick of picksBottom; index as index" cdkDrag>
-                        <div class="placeholder" *cdkDragPlaceholder></div>
-                        <div cdkDragHandle class="draggable">
-                            <span class="draggableItem">{{pickLength-middle-index}}</span>
-                            <sortable-game sortable="true" [team]="pick?.pick" class="draggableItem"></sortable-game>
+                        <div cdkDragHandle>
+                            <sortable-game sortable="true" [pick]="pick"></sortable-game>
                         </div>
                     </div>
                 </div>
             </div>
+            <span>Least Confident</span><br>
             <button (click)="submit()" [disabled]="loading" class="btn btn-primary">
                     <span *ngIf="loading" class="spinner-border spinner-border-sm mr-1"></span>
                     Submit
             </button>
         </mat-step>
     </mat-horizontal-stepper>
-</mat-card>
+</div>

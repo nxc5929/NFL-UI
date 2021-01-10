@@ -14,10 +14,6 @@ export class SelectPickSortableComponent implements OnInit {
   constructor(private gameService: GameService, private alertService: AlertService) { }
 
   picks: Pick[];
-  pickLength: number;
-  middle: number;
-  picksTop: Pick[];
-  picksBottom: Pick[];
   tiebreaker: number;
 
   survivorSelection: Team[];
@@ -37,35 +33,17 @@ export class SelectPickSortableComponent implements OnInit {
         }
         return a.game.id - b.game.id;
       });
-      this.pickLength = this.picks.length;
+      let temp = this.picks;
+      this.picks = this.picks.concat(this.picks);
+      this.picks = this.picks.concat(temp);
+      this.picks.pop();
+      this.picks.pop();
       this.survivorSelection = res.data.survivorSelection;
       this.survivor = res.data.survivor;
       this.tiebreaker = res.data.tiebreaker;
     });
   }
 
-  drop(event: CdkDragDrop<string[]>) {
-    if (event.previousContainer === event.container) {
-      moveItemInArray(event.container.data, event.previousIndex, event.currentIndex);
-    } else {
-      transferArrayItem(event.previousContainer.data,
-        event.container.data,
-        event.previousIndex,
-        event.currentIndex);
-    }
-    this.maintainTwoLists();
-  }
-
-  createTwoLists(){
-    this.middle = this.picks.length/2;
-    this.picksTop = this.picks.slice(0, this.middle);
-    this.picksBottom = this.picks.slice(this.middle);
-  }
-
-  maintainTwoLists(){
-    this.picks = this.picksTop.concat(this.picksBottom);
-    this.createTwoLists();
-  }
 
   updateSurvivor(survivor: Pick){
     this.survivor = survivor;

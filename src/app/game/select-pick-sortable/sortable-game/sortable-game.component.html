@@ -1,11 +1,14 @@
-<div id="container">
-    <div class="flexInline" *ngIf="team">
-        <img src="assets/logos/{{team.teamAbv}}.png">
-        <div class="element">
-            {{team.teamName}}
-            <span class="subtitle">
-                {{team.wins}}-{{team.losses}}-{{team.ties}}
-            </span>
+<div class="container" *ngIf="pick">
+    <div class="pickDetails">
+        <img src="assets/logos/{{pick.pick.teamAbv}}.png">
+        <b>{{pick.pick.teamName}}</b>
+    </div>
+    <div class="gameDetails">
+        <div>
+            {{pick.game.awayTeam.teamName}} @ {{pick.game.homeTeam.teamName}}
+        </div>
+        <div>
+            Favorite: {{pick.game.spread.favTeam.teamName}} by {{pick.game.spread.points}}
         </div>
     </div>
 </div>

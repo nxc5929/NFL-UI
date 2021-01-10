@@ -8,7 +8,7 @@ import { Pick, Team } from 'src/services/game/pick-model';
 })
 export class SortableGameComponent implements OnInit {
 
-  @Input() team: Team;
+  @Input() pick: Pick;
 
   constructor() { }
 

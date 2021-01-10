@@ -1,18 +1,18 @@
 mat-card {
     display: grid;
-    padding: 5px;
+    padding-bottom: 10px;
+    padding-top: 10px;
     border-top: solid lightgray
     
 }
 
 spread-indicator{
-    padding-top: 20px;
+    padding-top: 10px;
 }
 
 .teams {
     display: flex;
     width: 100%;
-    padding-bottom: 20px;
 }
 
 .gameElement {

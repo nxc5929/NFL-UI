@@ -6,14 +6,13 @@
     z-index: 1;
   }
 
-.draggable{
-  display: inline-flex;
-  margin-bottom: 10px;
-  cursor: all-scroll;
+::ng-deep mat-horizontal-stepper .mat-horizontal-content-container{
+  padding: 10px;
 }
 
-.draggableItem{
-  margin: 5px;
+.draggable{
+  display: inline-flex;
+  cursor: all-scroll;
 }
 
 .listGroup{
@@ -22,6 +21,18 @@
   overflow: visible;
 }
 
+.pickContainer{
+  display: grid;
+  grid-template-columns: repeat(1, 1fr);
+}
+
 .list{
   flex: 1;
+}
+
+@media only screen and (min-width: 800px) {
+
+  .pickContainer{
+    grid-template-columns: repeat(2, 1fr);
+  }
 }

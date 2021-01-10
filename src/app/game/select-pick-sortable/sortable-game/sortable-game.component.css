@@ -1,24 +1,19 @@
-#container{
+.container {
     display: flex;
+    border-bottom: solid silver;
+    border-width: 1px;
 }
 
-.element{
+.pickDetails{
     flex: 1;
 }
 
-.subtitle {
-    display: block;
-    font-size: 0.8em;
-    margin-top: 2px;
-    max-width: 150px;
+.gameDetails{
+    flex: 1.5;
+    font-size: 12px;
 }
 
 img{
     max-height: 40px;
-}
-
-.flexInline{
-    flex: 1;
-    display: inline-flex;
 }
 
